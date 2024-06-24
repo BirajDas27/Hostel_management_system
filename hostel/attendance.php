@@ -46,6 +46,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/update-profile.css">
 </head>
 
 <body>
@@ -61,7 +62,7 @@ if (isset($_POST['submit'])) {
                         <h2 class="page-title" style="margin-top:4%">Mark Attendance</h2>
                         
                         <div class="panel panel-default">
-                            <div class="panel-heading">Attendance Form</div>
+                            <div class="panel-heading" style="background-color:#325d88;color:white">Attendance Form</div>
                             <div class="panel-body">
                                 <form method="post" class="form-horizontal">
                                     <div class="form-group">
@@ -69,12 +70,12 @@ if (isset($_POST['submit'])) {
                                         <div class="col-sm-8">
                                             <select name="status" class="form-control">
                                                 <option value="Present">Present</option>
-                                                <option value="Absent">Absent</option>
+                                                <option value="Absent" selected>Absent</option>
                                             </select>
                                         </div>
                                     </div>
                                     
-                                    <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="col-sm-8 col-sm-offset-9">
                                         <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                                     </div>
                                 </form>

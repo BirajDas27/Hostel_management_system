@@ -23,7 +23,7 @@ body {
 }
 
 .panel-heading {
-    background-color: #337ab7;
+    background-color: #325d88;
     color: white;
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
@@ -32,7 +32,7 @@ body {
 }
 
 .panel-body {
-    padding: 15px;
+    padding: 40px 15px 40px 15px;
 }
 
 .form-horizontal .form-group {

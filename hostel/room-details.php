@@ -23,6 +23,7 @@ check_login();
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/update-profile.css">
 <script language="javascript" type="text/javascript">
 var popUpWin=0;
 function popUpWindow(URLStr, left, top, width, height)
@@ -47,9 +48,9 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="page-title" style="margin-top:2%">Rooms Details</h2>
+						<h2 class="page-title" style="margin-top:4%">Rooms Details</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading">All Room Details</div>
+							<div class="panel-heading" style="background-color:#325d88;color:white">All Room Details</div>
 							<div class="panel-body">
 								<table id="zctb" class="table table-bordered " cellspacing="0" width="100%">
 									
@@ -68,7 +69,7 @@ while($row=$res->fetch_object())
 	  	?>
 
 <tr>
-<td colspan="4"><h4>Room Realted Info</h4></td>
+<td colspan="4"><h4>Room Related Info</h4></td>
 <td><a href="javascript:void(0);"  onClick="popUpWindow('http://localhost/hostel/full-profile.php?id=<?php echo $row->emailid;?>');" title="View Full Details">Print Data</a></td>
 </tr>
 <tr>
