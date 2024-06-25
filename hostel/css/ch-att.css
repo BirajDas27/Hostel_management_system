@@ -73,3 +73,59 @@ h2 {
     border: 1px solid #ddd;
     text-align: left;
 }
+
+@media only screen and (min-width: 202px) and (max-width: 600px) {
+    .form-group{
+        display:flex;
+        justify-content: center;
+    }
+    .col-md-12, .col-sm-2, .col-sm-8, .col-sm-6 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+    }
+    
+    .col-sm-2 {
+        width: 30%;
+    }
+    
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+    
+    .col-sm-6 {
+        width: 50%;
+    }
+    
+    .col-sm-offset-8 {
+        margin-left: 53%;
+    }
+
+    .control-label{
+        padding-top:0px;
+    }
+
+    .page-title{
+        padding-top: 10px;
+    }
+    .panel-body{
+        padding-top: 10px;
+    }
+    .content{
+        width: 215%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 769px) {
+    .content{
+        width: 500%;
+    }
+    .page-title{
+        width: 270%;
+    }
+}

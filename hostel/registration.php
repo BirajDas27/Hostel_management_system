@@ -77,7 +77,7 @@ return true;
 										
 
 <div class="form-group">
-<label class="col-sm-3 control-label"> Registration No : </label>
+<label class="col-sm-3 control-label"> Registration No:</label>
 <div class="col-sm-8">
 <input type="text" name="regno" id="regno"  class="form-control" required="required" >
 </div>
@@ -85,28 +85,28 @@ return true;
 
 
 <div class="form-group">
-<label class="col-sm-3 control-label">First Name : </label>
+<label class="col-sm-3 control-label">First Name:</label>
 <div class="col-sm-8">
 <input type="text" name="fname" id="fname"  class="form-control" required="required" >
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Middle Name : </label>
+<label class="col-sm-3 control-label">Middle Name:</label>
 <div class="col-sm-8">
 <input type="text" name="mname" id="mname"  class="form-control">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Last Name : </label>
+<label class="col-sm-3 control-label">Last Name:</label>
 <div class="col-sm-8">
 <input type="text" name="lname" id="lname"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Gender : </label>
+<label class="col-sm-3 control-label">Gender:</label>
 <div class="col-sm-8">
 <select name="gender" class="form-control" required="required">
 <option value="">Select Gender</option>
@@ -118,7 +118,7 @@ return true;
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Contact No : </label>
+<label class="col-sm-3 control-label">Contact No:</label>
 <div class="col-sm-8">
 <input type="text" name="contact" id="contact"  class="form-control" required="required">
 </div>
@@ -126,7 +126,7 @@ return true;
 
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Email id: </label>
+<label class="col-sm-3 control-label">Email id:</label>
 <div class="col-sm-8">
 <input type="email" name="email" id="email"  class="form-control" onBlur="checkAvailability()" required="required">
 <span id="user-availability-status" style="font-size:12px;"></span>
@@ -134,7 +134,7 @@ return true;
 </div>
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Password: </label>
+<label class="col-sm-3 control-label">Password:</label>
 <div class="col-sm-8">
 <input type="password" name="password" id="password"  class="form-control" required="required">
 </div>
@@ -142,7 +142,7 @@ return true;
 
 
 <div class="form-group">
-<label class="col-sm-3 control-label">Confirm Password : </label>
+<label class="col-sm-3 control-label">Confirm Password:</label>
 <div class="col-sm-8">
 <input type="password" name="cpassword" id="cpassword"  class="form-control" required="required">
 </div>

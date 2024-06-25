@@ -47,6 +47,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/update-profile.css">
+    <link rel="stylesheet" href="css/attendance.css">
 </head>
 
 <body>

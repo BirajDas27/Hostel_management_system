@@ -148,7 +148,7 @@ echo $dr*$fpm;
 <td><?php echo $row->egycontactno;?></td>
 <td><b>Guardian Name :</b></td>
 <td><?php echo $row->guardianName;?></td>
-<td><b>Guardian Relation :</b></td>
+<td><b>Guardian Relation:</b></td>
 <td><?php echo $row->guardianRelation;?></td>
 </tr>
 

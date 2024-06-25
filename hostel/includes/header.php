@@ -1,4 +1,5 @@
 <head>
+	<link rel="stylesheet" href="css/head-side.css">
 	<style>
 		@media only screen and (min-width: 427px) and (max-width: 768px) {
   			html {
@@ -25,7 +26,7 @@
 <?php
 } else { ?>
 <div class="brand clearfix">
-		<a href="#" class="logo" style="font-size:16px;">Hostel Management System</a>
+		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		
 	</div>

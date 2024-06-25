@@ -204,7 +204,7 @@ while($row=$res->fetch_object())
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label"><h4 style="color: green" align="left">Personal info </h4> </label>
+<label class="col-sm-4 control-label"><h4 style="color: green; width:150px" align="left">Personal info </h4> </label>
 </div>
 
 <div class="form-group">

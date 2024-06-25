@@ -85,8 +85,7 @@ check_login();
                                                     if ($noticeResult->num_rows > 0) {
                                                         while ($notice = $noticeResult->fetch_assoc()) {
                                                             echo '<li class="list-group-item">';
-                                                            echo '<h5 class="list-group-item-heading">' . $notice['title'] . ' <small>' . $notice['created_at'] . '</small></h5>';
-                                                            echo '<p class="list-group-item-text">' . $notice['content'] . '</p>';
+                                                            echo '<h5 class="list-group-item-heading"><div class="sub">' . $notice['title'] . '</div> <small>' . $notice['created_at'] . '</small></h5>';
                                                             echo '</li>';
                                                         }
                                                     } else {

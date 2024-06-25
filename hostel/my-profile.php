@@ -159,7 +159,7 @@ return true;
 
 											<div class="col-sm-6 col-sm-offset-9">
 
-												<input type="submit" name="update" Value="Update" class="btn btn-primary">
+												<button type="submit" name="update" Value="Update" class="btn btn-primary">Update</button>
 											</div>
 										</form>
 	

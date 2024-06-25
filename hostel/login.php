@@ -56,6 +56,8 @@ header("location:dashboard.php");
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/head-side.css">
+
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -82,7 +84,7 @@ return true;
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">User Login </h2>
+						<h2 class="page-title" style="margin-top: 0">User Login </h2>
 
 						<div class="row">
 					<div class="col-md-6 col-md-offset-3">

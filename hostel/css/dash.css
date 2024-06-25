@@ -23,3 +23,50 @@
   .page-title{
     margin-bottom: 20px;
   }
+
+  .list-group-item-heading{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight:bolder; 
+  }
+
+  .list-group-item-heading small{
+    font-size: 11px;
+    
+  }
+
+  @keyframes colorChange {
+    0% {
+        color: #FF0000;
+    }
+    50% {
+        color: #000000;
+    }
+    100% {
+        color: #ff0000;
+    }
+}
+
+.sub {
+  animation: colorChange 1s infinite;
+  width: 400px;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 426px) {
+  .page-title{
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .list-group-item-heading{
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .sub{
+    display: flex;
+    justify-content: left;
+  }
+}
