@@ -754,3 +754,8 @@ li {
   height: 100%;
   width: 100%;
 }
+
+.page-title{
+  margin: 0px;
+  border-bottom: 1px solid grey;
+}

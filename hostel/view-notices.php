@@ -37,36 +37,38 @@ check_login();
                     <div class="col-md-12">
 
                         <h2 class="page-title" style="margin-top:4%">Notice Board</h2>
-                        <?php
-                        // Database connection
-                        $dbuser = "root";
-                        $dbpass = "";
-                        $host = "localhost";
-                        $db = "hostel";
-                        $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
+                        <div class="notice-container">
+                            <?php
+                            // Database connection
+                            $dbuser = "root";
+                            $dbpass = "";
+                            $host = "localhost";
+                            $db = "hostel";
+                            $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
 
-                        // Check connection
-                        if ($mysqli->connect_error) {
-                            die("Connection failed: " . $mysqli->connect_error);
-                        }
-                    
-                        // Fetch notices in descending order by created_at
-                        $sql = "SELECT title, content, created_at FROM notices ORDER BY created_at DESC";
-                        $result = $mysqli->query($sql);
-                    
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<div class='notice'>";
-                                echo "<div class='notice-header'><span>" . $row['title'] . "</span><span>" . $row['created_at'] . "</span></div>";
-                                echo "<div class='notice-content'>" . $row['content'] . "</div>";
-                                echo "</div>";
+                            // Check connection
+                            if ($mysqli->connect_error) {
+                                die("Connection failed: " . $mysqli->connect_error);
                             }
-                        } else {
-                            echo "<p>No notices found</p>";
-                        }
-                    
-                        $mysqli->close();
-                        ?>
+                        
+                            // Fetch notices in descending order by created_at
+                            $sql = "SELECT title, content, created_at FROM notices ORDER BY created_at DESC";
+                            $result = $mysqli->query($sql);
+                        
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<div class='notice'>";
+                                    echo "<div class='notice-header'><div class='title'><span>" . $row['title'] . "</span></div><div class='time'><span>" . $row['created_at'] . "</span></div></div>";
+                                    echo "<div class='notice-content'>" . $row['content'] . "</div>";
+                                    echo "</div>";
+                                }
+                            } else {
+                                echo "<p>No notices found</p>";
+                            }
+                        
+                            $mysqli->close();
+                            ?>
+                        </div>
                         
 
                     </div>

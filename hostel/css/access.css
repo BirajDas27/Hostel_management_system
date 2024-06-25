@@ -1,0 +1,9 @@
+.panel-body{
+    border:1px solid #325d88;
+    border-top: 0px;
+    border-radius: 2px;
+}
+
+.page-title{
+    margin-bottom: 20px;
+}

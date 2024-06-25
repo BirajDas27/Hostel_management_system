@@ -24,6 +24,7 @@ check_login();
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/update-profile.css">
+	<link rel="stylesheet" href="css/room-details.css">
 <script language="javascript" type="text/javascript">
 var popUpWin=0;
 function popUpWindow(URLStr, left, top, width, height)
@@ -50,7 +51,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 					<div class="col-md-12">
 						<h2 class="page-title" style="margin-top:4%">Rooms Details</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading" style="background-color:#325d88;color:white">All Room Details</div>
+							<div class="panel-heading" style="background-color:#325d88;color:white">Your room</div>
 							<div class="panel-body">
 								<table id="zctb" class="table table-bordered " cellspacing="0" width="100%">
 									

@@ -51,6 +51,8 @@ $chngpwd1->bind_param('ssi',$np,$udate,$ai);
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/ch-password.css">
+
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 <script type="text/javascript">
@@ -82,17 +84,17 @@ return true;
 	
 						<div class="row">
 	
-								<div class="col-md-10">
+								<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">
-<?php $result ="SELECT passUdateDate FROM userregistration WHERE id=?";
-$stmt = $mysqli->prepare($result);
-$stmt->bind_param('i',$ai);
-$stmt->execute();
-$stmt -> bind_result($result);
-$stmt -> fetch(); ?>
+									<div class="panel-heading" style="background-color:#325D88;color:white">
+										<?php $result ="SELECT passUdateDate FROM userregistration WHERE id=?";
+										$stmt = $mysqli->prepare($result);
+										$stmt->bind_param('i',$ai);
+										$stmt->execute();
+										$stmt -> bind_result($result);
+										$stmt -> fetch(); ?>
 
-									Last Updation Date:&nbsp;<?php echo $result; ?> </div>
+									Last updated:&nbsp;<?php echo $result; ?> </div>
 									<div class="panel-body">
 				<form method="post" class="form-horizontal" name="changepwd" id="change-pwd" onSubmit="return valid();">
     <?php            if(isset($_POST['changepwd']))
@@ -101,19 +103,19 @@ $stmt -> fetch(); ?>
                                             <?php } ?>
 											<div class="hr-dashed"></div>
 											<div class="form-group">
-												<label class="col-sm-4 control-label">old Password </label>
+												<label class="col-sm-2 control-label">Old Password:</label>
 												<div class="col-sm-8">
 				<input type="password" value="" name="oldpassword" id="oldpassword" class="form-control" onBlur="checkpass()" required="required">
 									 <span id="password-availability-status" class="help-block m-b-none" style="font-size:12px;"></span> </div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-4 control-label">New Password</label>
+												<label class="col-sm-2 control-label">New Password:</label>
 												<div class="col-sm-8">
 											<input type="password" class="form-control" name="newpassword" id="newpassword" value="" required="required">
 												</div>
 											</div>
 <div class="form-group">
-									<label class="col-sm-4 control-label">Confirm Password</label>
+									<label class="col-sm-2 control-label">Confirm Password:</label>
 									<div class="col-sm-8">
 				<input type="password" class="form-control" value="" required="required" id="cpassword" name="cpassword" >
 												</div>
@@ -121,13 +123,13 @@ $stmt -> fetch(); ?>
 
 
 
-												<div class="col-sm-6 col-sm-offset-4">
-													<button class="btn btn-default" type="submit">Cancel</button>
+												<div class="col-sm-6 col-sm-offset-8">
+													
 													<input type="submit" name="changepwd" Value="Change Password" class="btn btn-primary">
 											</div>
-
+											
 										</form>
-
+										
 									</div>
 								</div>
 							</div>

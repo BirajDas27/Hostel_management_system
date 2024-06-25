@@ -65,27 +65,29 @@ $result = $stmt->get_result();
             <div class="row">
                 <div class="col-md-12">
 
-                    <h2 class="page-title" style="margin-top:10%">Check Attendance</h2>
+                    <h2 class="page-title" style="margin-top:2.5%">Check Attendance</h2>
                     
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="content">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php while ($row = $result->fetch_assoc()) { ?>
+                                <div class="table-wrapper">
+                                    <table class="table">
+                                        <thead>
                                             <tr>
-                                                <td><?php echo htmlspecialchars($row['date']); ?></td>
-                                                <td><?php echo htmlspecialchars($row['status']); ?></td>
+                                                <th>Date</th>
+                                                <th>Status</th>
                                             </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            <?php while ($row = $result->fetch_assoc()) { ?>
+                                                <tr>
+                                                    <td><?php echo htmlspecialchars($row['date']); ?></td>
+                                                    <td><?php echo htmlspecialchars($row['status']); ?></td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

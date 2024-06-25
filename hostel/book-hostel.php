@@ -58,6 +58,8 @@ echo"<script>alert('Student Succssfully register');</script>";
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/book-hostel.css">
+
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -96,12 +98,12 @@ $('#fpm').val(data);
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Registration </h2>
+						<h2 class="page-title">Book Hostel </h2>
 
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-primary">
-									<div class="panel-heading">Fill all Info</div>
+									<div class="panel-heading">fill all information</div>
 									<div class="panel-body">
 										<form method="post" action="" class="form-horizontal">
 							<?php
@@ -125,10 +127,10 @@ $uid=$_SESSION['login'];
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Room no. </label>
+<label class="col-sm-2 control-label">Room no.:</label>
 <div class="col-sm-8">
 <select name="room" id="room"class="form-control"  onChange="getSeater(this.value);" onBlur="checkAvailability()" required> 
-<option value="">Select Room</option>
+<option value="">Select Room:</option>
 <?php $query ="SELECT * FROM rooms";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -145,21 +147,21 @@ while($row=$res->fetch_object())
 </div>
 											
 <div class="form-group">
-<label class="col-sm-2 control-label">Seater</label>
+<label class="col-sm-2 control-label">Seater:</label>
 <div class="col-sm-8">
 <input type="text" name="seater" id="seater"  class="form-control"  >
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Fees Per Month</label>
+<label class="col-sm-2 control-label">Fees Per Month:</label>
 <div class="col-sm-8">
 <input type="text" name="fpm" id="fpm"  class="form-control" >
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Food Status</label>
+<label class="col-sm-2 control-label">Food Status:</label>
 <div class="col-sm-8">
 <input type="radio" value="0" name="foodstatus" checked="checked"> Without Food
 <input type="radio" value="1" name="foodstatus"> With Food(Rs 2000.00 Per Month Extra)
@@ -167,17 +169,17 @@ while($row=$res->fetch_object())
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Stay From</label>
+<label class="col-sm-2 control-label">Stay From:</label>
 <div class="col-sm-8">
 <input type="date" name="stayf" id="stayf"  class="form-control" >
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Duration</label>
+<label class="col-sm-2 control-label">Duration:</label>
 <div class="col-sm-8">
 <select name="duration" id="duration" class="form-control">
-<option value="">Select Duration in Month</option>
+<option value="">Select Duration in Month:</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -195,7 +197,7 @@ while($row=$res->fetch_object())
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Total Amount</label>
+<label class="col-sm-2 control-label">Total Amount:</label>
 <div class="col-sm-8">
 <input type="text" name="ta" id="ta"  class="result form-control" >
 </div>
@@ -206,7 +208,7 @@ while($row=$res->fetch_object())
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">course </label>
+<label class="col-sm-2 control-label">course:</label>
 <div class="col-sm-8">
 <select name="course" id="course" class="form-control" required> 
 <option value="">Select Course</option>
@@ -235,7 +237,7 @@ $aid=$_SESSION['id'];
 	  	?>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Registration No : </label>
+<label class="col-sm-2 control-label">Registration No:</label>
 <div class="col-sm-8">
 <input type="text" name="regno" id="regno"  class="form-control" value="<?php echo $row->regNo;?>" readonly >
 </div>
@@ -243,35 +245,35 @@ $aid=$_SESSION['id'];
 
 
 <div class="form-group">
-<label class="col-sm-2 control-label">First Name : </label>
+<label class="col-sm-2 control-label">First Name:</label>
 <div class="col-sm-8">
 <input type="text" name="fname" id="fname"  class="form-control" value="<?php echo $row->firstName;?>" readonly>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Middle Name : </label>
+<label class="col-sm-2 control-label">Middle Name:</label>
 <div class="col-sm-8">
 <input type="text" name="mname" id="mname"  class="form-control" value="<?php echo $row->middleName;?>"  readonly>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Last Name : </label>
+<label class="col-sm-2 control-label">Last Name:</label>
 <div class="col-sm-8">
 <input type="text" name="lname" id="lname"  class="form-control" value="<?php echo $row->lastName;?>" readonly>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Gender : </label>
+<label class="col-sm-2 control-label">Gender:</label>
 <div class="col-sm-8">
 <input type="text" name="gender" value="<?php echo $row->gender;?>" class="form-control" readonly>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Contact No : </label>
+<label class="col-sm-2 control-label">Contact No.:</label>
 <div class="col-sm-8">
 <input type="text" name="contact" id="contact" value="<?php echo $row->contactNo;?>"  class="form-control" readonly>
 </div>
@@ -279,35 +281,35 @@ $aid=$_SESSION['id'];
 
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Email id : </label>
+<label class="col-sm-2 control-label">Email id:</label>
 <div class="col-sm-8">
 <input type="email" name="email" id="email"  class="form-control" value="<?php echo $row->email;?>"  readonly>
 </div>
 </div>
 <?php } ?>
 <div class="form-group">
-<label class="col-sm-2 control-label">Emergency Contact: </label>
+<label class="col-sm-2 control-label">Emergency Contact:</label>
 <div class="col-sm-8">
 <input type="text" name="econtact" id="econtact"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Guardian  Name : </label>
+<label class="col-sm-2 control-label">Guardian  Name:</label>
 <div class="col-sm-8">
 <input type="text" name="gname" id="gname"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Guardian  Relation : </label>
+<label class="col-sm-2 control-label">Guardian  Relation:</label>
 <div class="col-sm-8">
 <input type="text" name="grelation" id="grelation"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Guardian Contact no : </label>
+<label class="col-sm-2 control-label">Guardian Contact no:</label>
 <div class="col-sm-8">
 <input type="text" name="gcontact" id="gcontact"  class="form-control" required="required">
 </div>
@@ -319,21 +321,21 @@ $aid=$_SESSION['id'];
 
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Address : </label>
+<label class="col-sm-2 control-label">Address:</label>
 <div class="col-sm-8">
 <textarea  rows="5" name="address"  id="address" class="form-control" required="required"></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">City : </label>
+<label class="col-sm-2 control-label">City:</label>
 <div class="col-sm-8">
 <input type="text" name="city" id="city"  class="form-control" required="required">
 </div>
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">State </label>
+<label class="col-sm-2 control-label">State:</label>
 <div class="col-sm-8">
 <select name="state" id="state"class="form-control" required> 
 <option value="">Select State</option>
@@ -350,7 +352,7 @@ while($row=$res->fetch_object())
 </div>							
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Pincode : </label>
+<label class="col-sm-2 control-label">Pincode:</label>
 <div class="col-sm-8">
 <input type="text" name="pincode" id="pincode"  class="form-control" required="required">
 </div>
@@ -362,7 +364,7 @@ while($row=$res->fetch_object())
 
 
 <div class="form-group">
-<label class="col-sm-5 control-label">Permanent Address same as Correspondense address : </label>
+<label class="col-sm-5 control-label">Permanent Address same as Correspondense address:</label>
 <div class="col-sm-4">
 <input type="checkbox" name="adcheck" value="1"/>
 </div>
@@ -370,21 +372,21 @@ while($row=$res->fetch_object())
 
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Address : </label>
+<label class="col-sm-2 control-label">Address:</label>
 <div class="col-sm-8">
 <textarea  rows="5" name="paddress"  id="paddress" class="form-control" required="required"></textarea>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">City : </label>
+<label class="col-sm-2 control-label">City:</label>
 <div class="col-sm-8">
 <input type="text" name="pcity" id="pcity"  class="form-control" required="required">
 </div>
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">State </label>
+<label class="col-sm-2 control-label">State:</label>
 <div class="col-sm-8">
 <select name="pstate" id="pstate"class="form-control" required> 
 <option value="">Select State</option>
@@ -401,15 +403,15 @@ while($row=$res->fetch_object())
 </div>							
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Pincode : </label>
+<label class="col-sm-2 control-label">Pincode:</label>
 <div class="col-sm-8">
 <input type="text" name="ppincode" id="ppincode"  class="form-control" required="required">
 </div>
 </div>	
 
 
-<div class="col-sm-6 col-sm-offset-4">
-<button class="btn btn-default" type="submit">Cancel</button>
+<div class="col-sm-6 col-sm-offset-9">
+
 <input type="submit" name="submit" Value="Register" class="btn btn-primary">
 </div>
 </form>

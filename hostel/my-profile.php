@@ -85,7 +85,7 @@ return true;
 								<div class="panel panel-primary">
 									<div class="panel-heading">
 
-									Last Updation date : &nbsp; <?php echo $row->updationDate;?> 
+									Last updated : &nbsp; <?php echo $row->updationDate;?> 
 									</div>
 																		
 										
