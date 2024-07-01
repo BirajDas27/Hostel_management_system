@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('includes/config.php');
+include ('includes/checklogin.php');
 if(isset($_POST['login']))
 {
 $email=$_POST['email'];
@@ -56,6 +57,7 @@ header("location:dashboard.php");
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/head-side.css">
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -110,9 +112,7 @@ return true;
 						</div>
 					</div>
 				</div> 	
-			</div>
-		</div>
-	</div>
+			
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

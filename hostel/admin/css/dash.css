@@ -1,3 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    margin-top: 30px;
+}
+
 .panel-body-notice{
     height: 260px;
     overflow-y: auto;
@@ -20,13 +33,10 @@
     padding: 10px;
   }
 
-  .page-title {
-    font-size: 30px;
-    font-weight: bold;
+  .page-title{
     margin-bottom: 20px;
-    padding-top: 40px;
-}
-
+    padding-top: 20px;
+  }
 
   .list-group-item-heading{
     display: flex;
@@ -39,25 +49,8 @@
     font-size: 11px;
     
   }
-  .panel{
-    margin-top: 20px;
-  }
-  
 
-  @keyframes colorChange {
-    0% {
-        color: #FF0000;
-    }
-    50% {
-        color: #000000;
-    }
-    100% {
-        color: #ff0000;
-    }
-}
-
-.sub {
-  animation: colorChange 1s infinite;
+  .sub {
   width: 400px;
   overflow: hidden;
 }
@@ -65,7 +58,7 @@
 @media only screen and (min-width: 250px) and (max-width: 426px) {
   .page-title{
     padding-bottom: 20px;
-    padding-top: 35px;
+    padding-top: 50px;
   }
 
   .list-group-item-heading{
@@ -76,5 +69,11 @@
   .sub{
     display: flex;
     justify-content: left;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .menu-btn{
+    height: 60px;
   }
 }

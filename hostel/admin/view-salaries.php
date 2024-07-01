@@ -1,10 +1,14 @@
 <?php
+session_start();
 include('includes/config.php');
+include('includes/checklogin.php');
+check_login();
 
 // SQL query
 $sql = "SELECT s.id, e.name as employee_name, e.salary as salary, s.bonus_salary, (e.salary + s.bonus_salary) as total, s.date_added 
         FROM salaries s 
-        INNER JOIN employees e ON s.employee_id = e.id";
+        INNER JOIN employees e ON s.employee_id = e.id
+        ORDER BY s.date_added DESC";
 
 // Execute the query
 $result = $mysqli->query($sql);
@@ -35,6 +39,31 @@ if (!$result) {
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/view-salary.css">
+    <style>
+        .edit-form {
+            display: none;
+        }
+        .show-form {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            cursor: pointer;
+        }
+        th.sort-asc::after {
+            content: " ▲";
+        }
+        th.sort-desc::after {
+            content: " ▼";
+        }
+    </style>
 </head>
 <body>
     <?php include ("includes/header.php"); ?>
@@ -46,39 +75,39 @@ if (!$result) {
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title" style="margin-top:4%">Employee Salary records</h2>
-                        
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Employee Name</th>
-                                    <th>Salary</th>
-                                    <th>Bonus Salary</th>
-                                    <th>Total</th>
-                                    <th>Date Added</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row["id"] . "</td>";
-                                        echo "<td>" . $row["employee_name"] . "</td>";
-                                        echo "<td>" . $row["salary"] . "</td>";
-                                        echo "<td>" . $row["bonus_salary"] . "</td>";
-                                        echo "<td>" . $row["total"] . "</td>";
-                                        echo "<td>" . $row["date_added"] . "</td>";
-                                        echo "</tr>";
+                        <h2 class="page-title" style="margin-top:4%">Employee salary records</h2>
+                        <div class="box">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Salary</th>
+                                        <th>Bonus Salary</th>
+                                        <th>Total</th>
+                                        <th>Date Added</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td>" . $row["id"] . "</td>";
+                                            echo "<td>" . $row["employee_name"] . "</td>";
+                                            echo "<td>" . $row["salary"] . "</td>";
+                                            echo "<td>" . $row["bonus_salary"] . "</td>";
+                                            echo "<td>" . $row["total"] . "</td>";
+                                            echo "<td>" . $row["date_added"] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='6'>No bonus records found</td></tr>";
                                     }
-                                } else {
-                                    echo "<tr><td colspan='6'>No salary records found</td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                            
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
                         
                         
 
@@ -101,6 +130,7 @@ if (!$result) {
     <script src="js/fileinput.js"></script>
     <script src="js/chartData.js"></script>
     <script src="js/main.js"></script>
+    
 
 </body>
 </html>

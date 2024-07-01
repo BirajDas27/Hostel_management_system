@@ -123,14 +123,14 @@ $uid=$_SESSION['login'];
 							}			
 							?>			
 <div class="form-group">
-<label class="col-sm-4 control-label"><h4 style="color: green" align="left">Room Related info </h4> </label>
+	<label class="col-sm-4 control-label"><h4 style="color: green;font-weight: bold;font-size: 20px" align="left">Room related info </h4> </label>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Room no.:</label>
+<label class="col-sm-2 control-label">Room number:</label>
 <div class="col-sm-8">
 <select name="room" id="room"class="form-control"  onChange="getSeater(this.value);" onBlur="checkAvailability()" required> 
-<option value="">Select Room:</option>
+<option value="">Select room:</option>
 <?php $query ="SELECT * FROM rooms";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -154,22 +154,22 @@ while($row=$res->fetch_object())
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Fees Per Month:</label>
+<label class="col-sm-2 control-label">Fees per month:</label>
 <div class="col-sm-8">
 <input type="text" name="fpm" id="fpm"  class="form-control" >
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Food Status:</label>
+<label class="col-sm-2 control-label">Food status:</label>
 <div class="col-sm-8">
-<input type="radio" value="0" name="foodstatus" checked="checked"> Without Food
-<input type="radio" value="1" name="foodstatus"> With Food(Rs 2000.00 Per Month Extra)
+<input type="radio" value="0" name="foodstatus" checked="checked"> Without food
+<input type="radio" value="1" name="foodstatus"> With food(Rs 2000.00 per month extra)
 </div>
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Stay From:</label>
+<label class="col-sm-2 control-label">Stay from:</label>
 <div class="col-sm-8">
 <input type="date" name="stayf" id="stayf"  class="form-control" >
 </div>
@@ -179,7 +179,7 @@ while($row=$res->fetch_object())
 <label class="col-sm-2 control-label">Duration:</label>
 <div class="col-sm-8">
 <select name="duration" id="duration" class="form-control">
-<option value="">Select Duration in Month:</option>
+<option value="">Select duration in month:</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -197,21 +197,21 @@ while($row=$res->fetch_object())
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Total Amount:</label>
+<label class="col-sm-2 control-label">Total amount:</label>
 <div class="col-sm-8">
 <input type="text" name="ta" id="ta"  class="result form-control" >
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-4 control-label"><h4 style="color: green; width:150px" align="left">Personal info </h4> </label>
+<label class="col-sm-4 control-label"><h4 style="color: green;font-weight: bold;font-size: 20px" align="left">Personal info </h4> </label>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">course:</label>
+<label class="col-sm-2 control-label">Course:</label>
 <div class="col-sm-8">
 <select name="course" id="course" class="form-control" required> 
-<option value="">Select Course</option>
+<option value="">Select course:</option>
 <?php $query ="SELECT * FROM courses";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -237,7 +237,7 @@ $aid=$_SESSION['id'];
 	  	?>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Registration No:</label>
+<label class="col-sm-2 control-label">Registration number:</label>
 <div class="col-sm-8">
 <input type="text" name="regno" id="regno"  class="form-control" value="<?php echo $row->regNo;?>" readonly >
 </div>
@@ -245,21 +245,21 @@ $aid=$_SESSION['id'];
 
 
 <div class="form-group">
-<label class="col-sm-2 control-label">First Name:</label>
+<label class="col-sm-2 control-label">First name:</label>
 <div class="col-sm-8">
 <input type="text" name="fname" id="fname"  class="form-control" value="<?php echo $row->firstName;?>" readonly>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Middle Name:</label>
+<label class="col-sm-2 control-label">Middle name:</label>
 <div class="col-sm-8">
 <input type="text" name="mname" id="mname"  class="form-control" value="<?php echo $row->middleName;?>"  readonly>
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Last Name:</label>
+<label class="col-sm-2 control-label">Last name:</label>
 <div class="col-sm-8">
 <input type="text" name="lname" id="lname"  class="form-control" value="<?php echo $row->lastName;?>" readonly>
 </div>
@@ -273,7 +273,7 @@ $aid=$_SESSION['id'];
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Contact No.:</label>
+<label class="col-sm-2 control-label">Contact number:</label>
 <div class="col-sm-8">
 <input type="text" name="contact" id="contact" value="<?php echo $row->contactNo;?>"  class="form-control" readonly>
 </div>
@@ -288,35 +288,35 @@ $aid=$_SESSION['id'];
 </div>
 <?php } ?>
 <div class="form-group">
-<label class="col-sm-2 control-label">Emergency Contact:</label>
+<label class="col-sm-2 control-label">Emergency contact:</label>
 <div class="col-sm-8">
 <input type="text" name="econtact" id="econtact"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Guardian  Name:</label>
+<label class="col-sm-2 control-label">Guardian name:</label>
 <div class="col-sm-8">
 <input type="text" name="gname" id="gname"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Guardian  Relation:</label>
+<label class="col-sm-2 control-label">Guardian relation:</label>
 <div class="col-sm-8">
 <input type="text" name="grelation" id="grelation"  class="form-control" required="required">
 </div>
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Guardian Contact no:</label>
+<label class="col-sm-2 control-label">Guardian contact:</label>
 <div class="col-sm-8">
 <input type="text" name="gcontact" id="gcontact"  class="form-control" required="required">
 </div>
 </div>	
 
 <div class="form-group">
-<label class="col-sm-3 control-label"><h4 style="color: green" align="left">Correspondense Address </h4> </label>
+<label class="col-sm-3 control-label"><h4 style="color: green;font-weight: bold;font-size: 20px" align="left">Correspondense address</h4> </label>
 </div>
 
 
@@ -359,12 +359,12 @@ while($row=$res->fetch_object())
 </div>	
 
 <div class="form-group">
-<label class="col-sm-3 control-label"><h4 style="color: green" align="left">Permanent Address </h4> </label>
+<label class="col-sm-3 control-label"><h4 style="color: green;font-weight: bold;font-size: 20px" align="left">Permanent address </h4> </label>
 </div>
 
 
 <div class="form-group">
-<label class="col-sm-5 control-label">Permanent Address same as Correspondense address:</label>
+<label class="col-sm-5 control-label">Permanent address same as correspondense address:</label>
 <div class="col-sm-4">
 <input type="checkbox" name="adcheck" value="1"/>
 </div>
@@ -410,10 +410,8 @@ while($row=$res->fetch_object())
 </div>	
 
 
-<div class="col-sm-6 col-sm-offset-9">
+<button type="submit" name="submit" Value="Register" class="align-right">Register</button>
 
-<input type="submit" name="submit" Value="Register" class="btn btn-primary">
-</div>
 </form>
 
 									</div>

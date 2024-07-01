@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    margin-top: 30px;
+}
+
+.panel{
+    border: 1px solid grey;
+    padding: 30px 20px;
+    border-radius: 5px;
+}
+
+.panel-body{
+    border: 1px solid rgb(194, 186, 173);
+    border-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+    width: 25%;
+    text-align: right;
+    padding: 10px 20px 0px 0px;
+}
+
+input{
+    border-color: grey;
+    width: 75%;
+}
+
+form{
+    padding-left: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+
+}
+form{
+    margin-top: 10px;
+    padding: 0px 20px;
+}
+
+form span{
+    text-align: center;
+}
+
+.align-right {
+    float: right;
+    transform:translateX(26px);
+    font-weight:bold
+}
+
+.flex{
+    width: 100%;
+}
+
+.flex input{
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 250px) and (max-width: 426px) {
+    .page-title{
+      padding-top: 30px;
+    }
+  
+    .list-group-item-heading{
+      font-size: 17px;
+      font-weight: bold;
+    }
+  
+    .sub{
+      display: flex;
+      justify-content: left;
+    }
+
+    .col-sm-12{
+        overflow-x: auto;
+    }
+
+    .col-md-12, .col-sm-2, .col-sm-8, .col-sm-6 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+    }
+    
+    .col-sm-2 {
+        width: 30%;
+    }
+    
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+    
+    .col-sm-6 {
+        width: 50%;
+    }
+    
+    .col-sm-offset-8 {
+        margin-left: 53%;
+    }
+
+    .control-label{
+        padding-top:0px;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        width: 117%;
+    }
+    .align-right {
+        float: right;
+        transform:translateX(10px)
+    }
+
+    label{
+        width: 100%;
+        text-align: left;
+    }
+
+    .flex{
+        width: 94%;
+    }
+    
+    .flex input{
+        width: 100%;
+    }
+
+
+  }
+
+  @media only screen and (min-width: 426px) and (max-width: 768px) {
+    .page-title{
+        padding-top: 0px;
+        
+    }
+    .menu-btn{
+        height: 60px;
+    }
+    .control-label{
+        padding-top:0px;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+    }
+    .align-right {
+        float: right;
+        transform:translateX(10px);
+        width: 128px;
+    }
+
+    label{
+        width: 100%;
+        text-align: left;
+    }
+    .flex{
+        width: 96%;
+    }
+    
+    .flex input{
+        width: 100%;
+    }
+    
+  }

@@ -125,7 +125,7 @@ return true;
 
 												<div class="col-sm-6 col-sm-offset-8">
 													
-													<input type="submit" name="changepwd" Value="Change Password" class="btn btn-primary">
+													<button type="submit" name="changepwd" Value="Change Password" class="btn btn-primary">Change</button>
 											</div>
 											
 										</form>

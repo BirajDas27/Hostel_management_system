@@ -24,6 +24,7 @@ check_login();
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dash.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@ check_login();
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title" style="margin-top:4%">Dashboard</h2>
+                        <h2 class="page-title">Dashboard</h2>
 
                         <div class="row">
                             <div class="col-md-3">
@@ -95,8 +96,9 @@ check_login();
                                     <div class="panel-body bk-warning text-light">
                                         <div class="stat-panel text-center">
                                             <?php
-                                            // Query to get total attendance records
-                                            $result = $mysqli->query("SELECT count(*) FROM attendance");
+                                            // Query to get total attendance records for today
+                                            $today = date('Y-m-d');
+                                            $result = $mysqli->query("SELECT count(*) FROM attendance WHERE date = '$today' AND status = 'Present'");
                                             $count = $result->fetch_row()[0];
                                             ?>
                                             <div class="stat-panel-number h1 "><?php echo $count; ?></div>
@@ -107,36 +109,33 @@ check_login();
                                         <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <!-- Latest Notices Panel -->
                             <div class="col-md-6">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">Latest Notices</div>
-                                    <div class="panel-body-notice">
-                                        <ul class="list-group">
-                                            <?php
-                                            $noticeQuery = "SELECT title, content, created_at FROM notices ORDER BY created_at DESC LIMIT 5";
-                                            $noticeResult = $mysqli->query($noticeQuery);
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Latest Notices</div>
+                                            <div class="panel-body-notice">
+                                                <ul class="list-group">
+                                                    <?php
+                                                    $noticeQuery = "SELECT title, content, created_at FROM notices ORDER BY created_at DESC LIMIT 5";
+                                                    $noticeResult = $mysqli->query($noticeQuery);
 
-                                            if ($noticeResult->num_rows > 0) {
-                                                while ($notice = $noticeResult->fetch_assoc()) {
-                                                    echo '<li class="list-group-item">';
-                                                    echo '<h5 class="list-group-item-heading">' . htmlspecialchars($notice['title']) . ' <small>' . htmlspecialchars($notice['created_at']) . '</small></h5>';
-                                                    echo '<p class="list-group-item-text">' . htmlspecialchars($notice['content']) . '</p>';
-                                                    echo '</li>';
-                                                }
-                                            } else {
-                                                echo '<li class="list-group-item">No notices found.</li>';
-                                            }
-                                            ?>
-                                        </ul>
+                                                    if ($noticeResult->num_rows > 0) {
+                                                        while ($notice = $noticeResult->fetch_assoc()) {
+                                                            echo '<li class="list-group-item">';
+                                                            echo '<h5 class="list-group-item-heading"><div class="sub">' . $notice['title'] . '</div> <small>' . $notice['created_at'] . '</small></h5>';
+                                                            echo '</li>';
+                                                        }
+                                                    } else {
+                                                        echo '<li class="list-group-item">No notices found.</li>';
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                            <a href="manage-notices.php" class="block-anchor panel-footer">Manage Notices <i class="fa fa-arrow-right"></i></a>
+                                        </div>
                                     </div>
-                                    <a href="manage-notices.php" class="block-anchor panel-footer">View All Notices <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
                         </div>
+
+                        
 
                     </div>
                 </div>

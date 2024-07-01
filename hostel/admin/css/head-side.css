@@ -1,4 +1,4 @@
-@media only screen and (min-width: 320px) and (max-width: 426px) {
+@media only screen and (min-width: 250px) and (max-width: 426px) {
     .form-group{
         display:flex;
         justify-content: center;
@@ -40,14 +40,18 @@
     .panel-body{
         padding-top: 10px;
     }
-    .brand{
-        height: 60px;
-    }
+    
     
     b{
         display: none;
     }
-    
+    .menu-btn{
+        height: 60px;
+    }
+
+    .brand{
+        z-index: 5;
+    }
 }
 
 img{

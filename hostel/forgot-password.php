@@ -30,32 +30,46 @@ $stmt=$mysqli->prepare("SELECT email,contactNo,password FROM userregistration WH
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="theme-color" content="#3e454c">
 
 	<title>User Forgot Password</title>
 
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">>
 	<link rel="stylesheet" href="css/bootstrap-social.css">
 	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
-</head
+	<style>
+		b{
+			display:none;
+		}
+	</style>
+</head>
+
 <body>
-	
-	<div class="login-page bk-img" style="background-image: url(img/login-bg.jpg);">
-		<div class="form-content">
-			<div class="container">
+	<?php include('includes/header.php');?>
+	<div class="ts-main-content">
+		<?php include('includes/sidebar.php');?>
+		<div class="content-wrapper">
+			<div class="container-fluid">
+
 				<div class="row">
+					<div class="col-md-12">
+					
+						<h2 class="page-title" style="margin-top: 0.1%">Forgot Password</h2>
+
+						<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-						<h1 class="text-center text-bold text-light mt-4x">Forgot Password</h1>
 						<div class="well row pt-2x pb-3x bk-light">
 							<div class="col-md-8 col-md-offset-2">
+							
 							<?php if(isset($_POST['login']))
-{ ?>
-					<p>Yuor Password is <?php echo $pwd;?><br> Change the Password After login</p>
-					<?php }  ?>
+							{ ?>
+								<p style="font-weight:bold;text-align:center">Your Password is <?php echo $pwd;?><br> Change the Password After login</p>
+								<?php }  ?>
 								<form action="" class="mt" method="post">
 									<label for="" class="text-uppercase text-sm">Your Email</label>
 									<input type="email" placeholder="Email" name="email" class="form-control mb">
@@ -63,18 +77,21 @@ $stmt=$mysqli->prepare("SELECT email,contactNo,password FROM userregistration WH
 									<input type="text" placeholder="Contact no" name="contact" class="form-control mb">
 									
 
-									<input type="submit" name="login" class="btn btn-primary btn-block" value="login" >
+									<input type="submit" name="login" class="btn btn-primary btn-block" value="Show Password" >
 								</form>
 							</div>
 						</div>
 						<div class="text-center text-light">
-							<a href="index.php" class="text-light">Sign in?</a>
+							<a href="index.php" style="color:black">Sign in?</a>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div> 	
+			
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

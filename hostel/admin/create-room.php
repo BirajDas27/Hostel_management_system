@@ -4,7 +4,7 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 //code for add courses
-if($_POST['submit'])
+if (isset($_POST['submit']))
 {
 $seater=$_POST['seater'];
 $roomno=$_POST['rmno'];
@@ -47,6 +47,7 @@ echo"<script>alert('Room has been added successfully');</script>";
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/create-room.css">
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 </head>
@@ -60,50 +61,50 @@ echo"<script>alert('Room has been added successfully');</script>";
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Add a Room </h2>
+						<h2 class="page-title">Add Room </h2>
 	
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">Add a Room</div>
+									<div class="panel-heading" style="background-color: #325d88;color: white">create room</div>
 									<div class="panel-body">
 									<?php if(isset($_POST['submit']))
-{ ?>
-<p style="color: red"><?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg']=""); ?></p>
-<?php } ?>
+									{ ?>
+									<p style="color: red"><?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg']=""); ?></p>
+									<?php } ?>
 										<form method="post" class="form-horizontal">
 											
-											<div class="hr-dashed"></div>
+											
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Select Seater  </label>
-												<div class="col-sm-8">
+												<label for="seater">Select Seater:  </label>
+												
 												<Select name="seater" class="form-control" required>
-<option value="">Select Seater</option>
-<option value="1">Single Seater</option>
-<option value="2">Two Seater</option>
-<option value="3">Three Seater</option>
-<option value="4">Four Seater</option>
-<option value="5">Five Seater</option>
-</Select>
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-2 control-label">Room No.</label>
-<div class="col-sm-8">
-<input type="text" class="form-control" name="rmno" id="rmno" value="" required="required">
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-2 control-label">Fee(Per Student)</label>
-<div class="col-sm-8">
-<input type="text" class="form-control" name="fee" id="fee" value="" required="required">
-</div>
-</div>
-
-<div class="col-sm-8 col-sm-offset-2">
-<input class="btn btn-primary" type="submit" name="submit" value="Create Room ">
-												</div>
+													<option value="">Select Seater</option>
+													<option value="1">Single Seater</option>
+													<option value="2">Two Seater</option>
+													<option value="3">Three Seater</option>
+													<option value="4">Four Seater</option>
+													<option value="5">Five Seater</option>
+												</Select>
+												
 											</div>
+											<div class="form-group">
+												<label for="rmno">Room Number:</label>
+												
+												<input type="text" class="form-control" name="rmno" id="rmno" value="" required>
+												
+											</div>
+											<div class="form-group">
+												<label for="fee">Fee(Per Student):</label>
+												
+												<input type="text" class="form-control" name="fee" id="fee" value="" required>
+												
+											</div>
+
+											
+											<button class="align-right" type="submit" name="submit">Create</button>
+											
+											
 
 										</form>
 
@@ -125,7 +126,7 @@ echo"<script>alert('Room has been added successfully');</script>";
 
 			</div>
 		</div>
-	</div>
+	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

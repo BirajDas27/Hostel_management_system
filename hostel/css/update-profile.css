@@ -8,14 +8,17 @@ body {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-top: 30px;
+    padding-top: 20px;
+    
 }
+
 
 .panel {
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .panel-primary {
@@ -82,29 +85,26 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    user-select: none;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    background-color: #007bff;
+    border-color: #007bff;
 }
 
 .btn-primary:hover {
-    background-color: #286090;
-    border-color: #204d74;
+    background-color: #0064cf;
+    border-color: #0064cf;
 }
 
 .col-md-12, .col-sm-2, .col-sm-8, .col-sm-6 {
@@ -135,7 +135,7 @@ body {
 }
 
 
-@media only screen and (min-width: 320px) and (max-width: 426px) {
+@media only screen and (min-width: 250px) and (max-width: 426px) {
     .form-group{
         display:flex;
         justify-content: center;
@@ -172,7 +172,7 @@ body {
     }
 
     .page-title{
-        margin-top: 10px;
+        padding-top: 20px;
     }
 
     .col-sm-6 {
@@ -181,4 +181,59 @@ body {
         align-items: right;
         justify-content:right;
     }
+    .btn{
+        transform: translateX(35px)
+    }
 }
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    .form-group{
+        display:flex;
+        justify-content: center;
+    }
+    .col-md-12, .col-sm-2, .col-sm-8, .col-sm-6 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+    }
+    
+    .col-sm-2 {
+        width: 30%;
+    }
+    
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+    
+    .col-sm-6 {
+        width: 78%;
+    }
+    
+    .col-sm-offset-9 {
+        margin-left: 100%;
+    }
+
+    .control-label{
+        padding-top:0px;
+    }
+
+    .page-title{
+        padding-top: 20px;
+    }
+
+    .col-sm-6 {
+        margin-left: 165px;
+        display: flex;
+        align-items: right;
+        justify-content:right;
+    }
+    .btn{
+        float:right;
+    }
+    
+  }

@@ -4,7 +4,7 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 //code for add courses
-if($_POST['submit'])
+if (isset($_POST['submit']))
 {
 $coursecode=$_POST['cc'];
 $coursesn=$_POST['cns'];
@@ -36,6 +36,7 @@ echo"<script>alert('Course has been Updated successfully');</script>";
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/edit-course.css">
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 </head>
@@ -49,50 +50,51 @@ echo"<script>alert('Course has been Updated successfully');</script>";
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Edit Course </h2>
+						<h2 class="page-title">Edit Courses </h2>
 	
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">Edit courses</div>
+									<div class="panel-heading" style="background-color: #325d88;color: white">update course</div>
 									<div class="panel-body">
 										<form method="post" class="form-horizontal">
-												<?php	
-												$id=$_GET['id'];
-	$ret="select * from courses where id=?";
-		$stmt= $mysqli->prepare($ret) ;
-	 $stmt->bind_param('i',$id);
-	 $stmt->execute() ;//ok
-	 $res=$stmt->get_result();
-	 //$cnt=1;
-	   while($row=$res->fetch_object())
-	  {
-	  	?>
-						<div class="hr-dashed"></div>
-						<div class="form-group">
-						<label class="col-sm-2 control-label">Course Code </label>
-					<div class="col-sm-8">
-					<input type="text"  name="cc" value="<?php echo $row->course_code;?>"  class="form-control"> </div>
-					</div>
-				 <div class="form-group">
-				<label class="col-sm-2 control-label">Course Name (Short)</label>
-		<div class="col-sm-8">
-	<input type="text" class="form-control" name="cns" id="cns" value="<?php echo $row->course_sn;?>" required="required">
-						 </div>
-						</div>
-<div class="form-group">
-									<label class="col-sm-2 control-label">Course Name(Full)</label>
-									<div class="col-sm-8">
-									<input type="text" class="form-control" name="cnf" value="<?php echo $row->course_fn;?>" >
-												</div>
+											<?php	
+											$id=$_GET['id'];
+											$ret="select * from courses where id=?";
+											$stmt= $mysqli->prepare($ret) ;
+	 										$stmt->bind_param('i',$id);
+	 										$stmt->execute() ;//ok
+	 										$res=$stmt->get_result();
+	 										//$cnt=1;
+	 										  while($row=$res->fetch_object())
+	 										 {
+	 										?>
+						
+											<div class="form-group">
+												<label for="cc">Course Code:</label>
+												
+												<input type="text"  name="cc" value="<?php echo $row->course_code;?>"  class="form-control" required>
+												
+											</div>
+											<div class="form-group">
+												<label for="cns">Course Name (Short):</label>
+												
+												<input type="text" class="form-control" name="cns" id="cns" value="<?php echo $row->course_sn;?>" placeholder="(Optional)">
+												
+											</div>
+											<div class="form-group">
+												<label for="cnf" required>Course Name(Full):</label>
+												
+												<input type="text" class="form-control" name="cnf" value="<?php echo $row->course_fn;?>" required>
+												
 											</div>
 
 
-<?php } ?>
-												<div class="col-sm-8 col-sm-offset-2">
+											<?php } ?>
+												
 													
-													<input class="btn btn-primary" type="submit" name="submit" value="Update Course">
-												</div>
+													<button class="align-right" type="submit" name="submit">Update</button>
+												
 											</div>
 
 										</form>
@@ -114,8 +116,8 @@ echo"<script>alert('Course has been Updated successfully');</script>";
 				
 
 			</div>
-		</div>
-	</div>
+		
+	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

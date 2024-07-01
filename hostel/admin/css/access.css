@@ -4,9 +4,12 @@
     border-radius: 2px;
 }
 
-.page-title{
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
     margin-bottom: 20px;
-    padding-top: 15px;
+    border-bottom: 1px solid grey;
+    padding-top: 25px;
 }
 
 .panel{
@@ -50,7 +53,7 @@
     }
 
     .page-title{
-        padding-top: 30px;
+        padding-top: 50px;
     }
     
 
@@ -67,6 +70,6 @@
         overflow-x: auto;
     }
     .page-title{
-        padding-top: 25px;
+        padding-top: 40px;
     }
 }

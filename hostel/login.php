@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('includes/config.php');
+include ('includes/checklogin.php');
 if(isset($_POST['login']))
 {
 $email=$_POST['email'];

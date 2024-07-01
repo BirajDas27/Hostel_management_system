@@ -34,6 +34,7 @@ if(isset($_GET['del']))
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/manage-students.css">
 </head>
 
 <body>
@@ -47,7 +48,7 @@ if(isset($_GET['del']))
 					<div class="col-md-12">
 						<h2 class="page-title" style="margin-top: 4%">Manage Rooms</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading">All Room Details</div>
+							<div class="panel-heading" style="background:#325d88;color: white">Room Details</div>
 							<div class="panel-body">
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
@@ -90,7 +91,7 @@ while($row=$res->fetch_object())
 <td><?php echo $row->room_no;?></td>
 <td><?php echo $row->fees;?></td>
 <td><?php echo $row->posting_date;?></td>
-<td><a href="edit-room.php?id=<?php echo $row->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+<td style="display:flex;justify-content:center"><a href="edit-room.php?id=<?php echo $row->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 <a href="manage-rooms.php?del=<?php echo $row->id;?>" onclick="return confirm("Do you want to delete");"><i class="fa fa-close"></i></a></td>
 										</tr>
 									<?php

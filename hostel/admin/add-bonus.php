@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('includes/config.php');
+include('includes/checklogin.php');
+check_login();
 
 // Handle salary addition form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
@@ -42,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
 
-    <title>Add Salary</title>
+    <title>Add bonus</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -51,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/add-bonus.css">
     <style>
         .form-group {
             margin-bottom: 15px;
@@ -82,50 +86,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title" style="margin-top:4%">Search employee</h2>
-                        <form action="add-bonus.php" method="post">
-                            <div class="form-group">
-                                <label for="search_criteria">Search Criteria:</label>
-                                <select id="search_criteria" name="search_criteria">
-                                    <option value="id">ID</option>
-                                    <option value="name">Name</option>
-                                    <option value="designation">Designation</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="search_term">Search Term:</label>
-                                <input type="text" id="search_term" name="search_term" required>
-                            </div>
-                            <button type="submit" name="search">Search</button>
-                        </form>
+                        <h2 class="page-title" style="margin-top:4%">Employee bonus</h2>
+                        <div class="content">
+                            <div class="search">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color: #325d88;color:white">search the employee</div>
+                                    <div class="panel-body">
+                                        <form action="add-bonus.php" method="post">
+                                        <div class="form-group">
+                                            <label for="search_criteria">Search criteria:</label>
+                                            <select id="search_criteria" name="search_criteria" class="form-control">
+                                                <option value="id">ID</option>
+                                                <option value="name">Name</option>
+                                                <option value="designation">Designation</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="search_term">Search term:</label>
+                                            <input type="text" id="search_term" name="search_term" required>
+                                        </div>
+                                        <button type="submit" name="search" style="margin-right: 0px">Search</button>
+                                        </form>
 
-                        <?php if ($employee_details): ?>
-                            <h2>Employee Details</h2>
-                            <?php foreach ($employee_details as $employee): ?>
-                                <div class="employee-details">
-                                    <img src="<?php echo $employee['photo_path']; ?>" alt="Employee Photo">
-                                    <div>
-                                        <p><strong>ID:</strong> <?php echo $employee['id']; ?></p>
-                                        <p><strong>Name:</strong> <?php echo $employee['name']; ?></p>
-                                        <p><strong>Salary:</strong> <?php echo $employee['salary']; ?></p>
+                                        <?php if ($employee_details): ?>
+                                            <?php foreach ($employee_details as $employee): ?>
+                                                <div class="employee-details" style="margin-bottom: 0px">
+                                                    <h2>Employee details</h2>
+                                                    <div class="det">
+                                                        <p><strong>ID:</strong> <?php echo $employee['id']; ?></p>
+                                                        <p><strong>Name:</strong> <?php echo $employee['name']; ?></p>
+                                                        <p><strong>Salary:</strong> <?php echo $employee['salary']; ?></p>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                        
-                        <h2 class="page-title" style="margin-top:4%">Add bonus</h2>
-
-                        <form action="add-bonus.php" method="post" onsubmit="return confirmSalaryAddition();">
-                            <div class="form-group">
-                                <label for="employee_id">Employee ID:</label>
-                                <input type="text" id="employee_id" name="employee_id" required value="<?php echo isset($employee['id']) ? $employee['id'] : ''; ?>">
                             </div>
-                            <div class="form-group">
-                                <label for="bonus_salary">Bonus Salary:</label>
-                                <input type="text" id="bonus_salary" name="bonus_salary" required>
+                                
+                            
+                            
+                            <div class="bonus">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color: #325d88;color: white">add bonus</div>
+                                    <div class="panel-body">
+                                        <form action="add-bonus.php" method="post" onsubmit="return confirmSalaryAddition();">
+                                            <div class="form-group">
+                                                <label for="employee_id">Employee ID:</label>
+                                                <input type="text" id="employee_id" name="employee_id" required value="<?php echo isset($employee['id']) ? $employee['id'] : ''; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="bonus_salary">Bonus salary:</label>
+                                                <input type="text" id="bonus_salary" name="bonus_salary" required>
+                                            </div>
+                                            <button type="submit" name="submit" style="margin-right: 0px">Add bonus</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="submit" name="submit">Add bonus</button>
-                        </form>
+                        </div>
 
                         
                         

@@ -3,20 +3,26 @@ body {
     
   }
   
-  .page-title {
+.page-title {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
-    margin-top: 30px;
-  }
+    padding-top: 15px;
+}
+
+.panel{
+    margin-top: 20px;
+}
 
 .panel-body{
   border: 1px solid #325d88;
   border-top: 0px;
   border-radius: 2px;
+  padding-top: 20px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 426px) {
+
+@media only screen and (min-width: 250px) and (max-width: 426px) {
   .form-group{
       display:flex;
       justify-content: center;
@@ -53,9 +59,18 @@ body {
   }
 
   .page-title{
-      padding-top: 20px;
+      padding-top: 25px;
   }
   .panel-body{
       overflow-x: auto; 
   }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    .panel-body{
+        overflow-x: auto; 
+    }
+    .page-title{
+        padding-top: 25px;
+    }
 }

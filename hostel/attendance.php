@@ -4,10 +4,12 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-if (isset($_POST['submit'])) {
+$message = ''; // Initialize message variable
+
+if (isset($_POST['present'])) {
     $user_id = $_SESSION['id'];
     $date = date('Y-m-d');
-    $status = $_POST['status'];
+    $status = 'Present'; // Fixed to 'Present' status
 
     // Check if attendance already exists for the user on the current date
     $query_check = "SELECT id FROM attendance WHERE user_id = ? AND date = ?";
@@ -17,7 +19,7 @@ if (isset($_POST['submit'])) {
     $stmt_check->store_result();
 
     if ($stmt_check->num_rows > 0) {
-        echo "<script>alert('Attendance for today has already been marked');</script>";
+        $message = "Attendance for today has already been marked";
     } else {
         // Insert attendance record
         $query_insert = "INSERT INTO attendance (user_id, date, status) VALUES (?, ?, ?)";
@@ -26,7 +28,7 @@ if (isset($_POST['submit'])) {
         $stmt_insert->execute();
         $stmt_insert->close();
 
-        echo "<script>alert('Attendance marked successfully');</script>";
+        $message = "Attendance marked successfully";
     }
 
     $stmt_check->close();
@@ -37,6 +39,11 @@ if (isset($_POST['submit'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#3e454c">
     <title>Mark Attendance</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -46,12 +53,11 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/update-profile.css">
     <link rel="stylesheet" href="css/attendance.css">
 </head>
 
 <body>
-<?php include("includes/header.php");?>
+    <?php include("includes/header.php");?>
 
     <div class="ts-main-content">
         <?php include("includes/sidebar.php");?>
@@ -60,25 +66,28 @@ if (isset($_POST['submit'])) {
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title" style="margin-top:4%">Mark Attendance</h2>
-                        
+                        <h2 class="page-title">Mark Attendance</h2>
+
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background-color:#325d88;color:white">Attendance Form</div>
                             <div class="panel-body">
                                 <form method="post" class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Status</label>
-                                        <div class="col-sm-8">
-                                            <select name="status" class="form-control">
-                                                <option value="Present">Present</option>
-                                                <option value="Absent" selected>Absent</option>
-                                            </select>
-                                        </div>
+                                        <label>Date:</label>
+                                        
+                                        <input type="text" id="currentDate" class="form-control" value="<?php echo date('Y-m-d'); ?>" disabled>
+                                        
                                     </div>
+
                                     
-                                    <div class="col-sm-8 col-sm-offset-9">
-                                        <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-                                    </div>
+                                    <button class="align-right" type="submit" name="present">Present</button>
+                                    
+
+                                    <?php if (!empty($message)) : ?>
+                                        
+                                            <div class="alert alert-info"><?php echo $message; ?></div>
+                                        
+                                    <?php endif; ?>
                                 </form>
                             </div>
                         </div>
@@ -99,6 +108,19 @@ if (isset($_POST['submit'])) {
     <script src="js/fileinput.js"></script>
     <script src="js/chartData.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        // Function to update the date dynamically
+        function updateDate() {
+            var currentDateInput = document.getElementById('currentDate');
+            var currentDate = new Date().toISOString().slice(0, 10); // Get current date in YYYY-MM-DD format
+            currentDateInput.value = currentDate;
+        }
+
+        // Update the date initially and every minute (for example)
+        updateDate();
+        setInterval(updateDate, 60000); // Update every minute (60000 milliseconds)
+    </script>
 
 </body>
 

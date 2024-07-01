@@ -34,6 +34,7 @@ if(isset($_GET['del']))
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/manage-students.css">
 </head>
 
 <body>
@@ -45,9 +46,9 @@ if(isset($_GET['del']))
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="page-title" style="margin-top:4%">Manage Course</h2>
+						<h2 class="page-title" style="margin-top:4%">Manage Courses</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading">All Courses Details</div>
+							<div class="panel-heading" style="background:#325d88;color: white">All Courses Details</div>
 							<div class="panel-body">
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
@@ -86,7 +87,7 @@ while($row=$res->fetch_object())
 <td><?php echo $row->course_sn;?></td>
 <td><?php echo $row->course_fn;?></td>
 <td><?php echo $row->posting_date;?></td>
-<td><a href="edit-course.php?id=<?php echo $row->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+<td style="display:flex;justify-content:center"><a href="edit-course.php?id=<?php echo $row->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 <a href="manage-courses.php?del=<?php echo $row->id;?>" onclick="return confirm("Do you want to delete");"><i class="fa fa-close"></i></a></td>
 										</tr>
 									<?php

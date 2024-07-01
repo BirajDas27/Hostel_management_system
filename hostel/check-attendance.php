@@ -19,7 +19,7 @@ if ($mysqli->connect_error) {
 
 $userId = $_SESSION['id'];
 
-$sql = "SELECT date, status FROM attendance WHERE user_id = ?";
+$sql = "SELECT date, status FROM attendance WHERE user_id = ? ORDER by date DESC";
 $stmt = $mysqli->prepare($sql);
 
 if (!$stmt) {
@@ -42,7 +42,7 @@ $result = $stmt->get_result();
     <meta name="theme-color" content="#3e454c">
     
     <title>Check Attendance</title>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="path/to/your/styles.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -50,7 +50,6 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="css/bootstrap-select.css">
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/ch-att.css">
 </head>
 <body>
@@ -65,7 +64,7 @@ $result = $stmt->get_result();
             <div class="row">
                 <div class="col-md-12">
 
-                    <h2 class="page-title" style="margin-top:2.5%">Check Attendance</h2>
+                    <h2 class="page-title" style="margin-top:2%">Check Attendance</h2>
                     
                     <div class="row">
                         <div class="col-md-6">

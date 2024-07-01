@@ -14,13 +14,14 @@ h2 {
 .page-title {
     margin: 0px;
     border-bottom: 1px solid grey;
+    margin-top: 10px;
 }
 
 .row {
     display: flex;
     justify-content: left;
     padding-top: 20px;
-    height: 270px; /* Set height to auto to allow growth */
+    height: 270px;
 }
 
 .col-md-6 {
@@ -37,7 +38,7 @@ h2 {
 }
 
 .table-wrapper {
-    max-height: 500px; /* Increase height */
+    max-height: 500px;
     overflow-y: auto;
     border-radius: 8px;
 }
@@ -63,7 +64,7 @@ h2 {
 .table thead {
     position: sticky;
     top: 0;
-    background-color: #333;
+    background-color: #325d88;
     z-index: 1;
     color: white;
 }
@@ -74,7 +75,7 @@ h2 {
     text-align: left;
 }
 
-@media only screen and (min-width: 202px) and (max-width: 600px) {
+@media only screen and (min-width: 250px) and (max-width: 600px) {
     .form-group{
         display:flex;
         justify-content: center;

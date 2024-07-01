@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    margin-top: 50px;
+}
+
+
+
+form{
+    text-align: center;
+}
+
+
+
+.custom-inline-form .form-group,
+.custom-inline-form label,
+.custom-inline-form input,
+.custom-inline-form button {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+p{
+    text-align: center;
+}
+@media only screen and (min-width: 250px) and (max-width: 426px) {
+    .page-title{
+      padding-top: 45px;
+    }
+  
+    .list-group-item-heading{
+      font-size: 17px;
+      font-weight: bold;
+    }
+  
+    .sub{
+      display: flex;
+      justify-content: left;
+    }
+
+    .col-sm-12{
+        overflow-x: auto;
+    }
+
+    .form-group{
+        display:flex;
+        justify-content: center;
+    }
+    .col-md-12, .col-sm-2, .col-sm-8, .col-sm-6 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+    }
+    
+    .col-sm-2 {
+        width: 30%;
+    }
+    
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+    
+    .col-sm-6 {
+        width: 50%;
+    }
+    
+    .col-sm-offset-8 {
+        margin-left: 53%;
+    }
+
+    .control-label{
+        padding-top:0px;
+    }
+
+
+    .col-sm-12{
+        overflow-x: auto;
+    }
+
+    button{
+        width: 200px;
+    }
+  }
+
+  @media only screen and (min-width: 426px) and (max-width: 527px) {
+    .page-title{
+        padding-top: 10px;
+    }
+
+    .col-sm-12{
+        overflow-x: auto;
+    }
+    .menu-btn{
+        height: 60px;
+    }
+    button{
+        width: 200px;
+    }
+  }
+
+  @media only screen and (min-width: 527px) and (max-width: 768px) {
+    .menu-btn{
+        height: 60px;
+    }
+    .page-title{
+        padding-top: 10px;
+    }
+    button{
+        width: 70px;
+        margin-top: 15px
+    }
+    .col-sm-12{
+        overflow-x: auto;
+    }
+  }

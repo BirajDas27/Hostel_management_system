@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('includes/config.php');
+include('includes/checklogin.php');
+check_login();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -55,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
 
-    <title>Dashboard</title>
+    <title>add-employee</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -64,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/add-emp.css">
 </head>
 <body>
     <?php include ("includes/header.php"); ?>
@@ -76,61 +80,91 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="page-title" style="margin-top:4%">Add Employee</h2>
-                        <form action="add-employee.php" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" required>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #325d88;color: white">fill all information</div>
+                            <div class="panel-body">
+                                <form action="add-employee.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Name:</label>
+                                        <div class="col-sm-8">    
+                                            <input type="text" id="name" name="name" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Gender:</label>
+                                        <div class="col-sm-8">
+                                            <select id="gender" name="gender" class="form-control" required>
+                                                <option value="">Select Gender</option>
+			                                    <option value="male">Male</option>
+			                                    <option value="female">Female</option>
+			                                    <option value="others">Others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Employee Type:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="employee_type" name="employee_type" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Designation:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="designation" name="designation" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Join Date:</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" id="join_date" name="join_date" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Salary:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="salary" name="salary" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Block Number:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="block_number" name="block_number" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Address:</label>
+                                        <div class="col-sm-8">
+                                            <textarea id="address" name="address" rows="4" class="form-control" style="width: 100%" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" id="email" name="email" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Phone Number:</label>
+                                        <div class="col-sm-8">
+                                            <input type="tel" id="phone_no" name="phone_no" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">PIN:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="pin" name="pin" class="form-control" style="width: 100%" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Photo:</label>
+                                        
+                                        <input type="file" id="photo" name="photo" required>
+                                        
+                                    </div>
+                                    <button class="align-right" type="submit" name="submit">Add Employee</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="gender">Gender:</label>
-                                <select id="gender" name="gender" required>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="employee_type">Employee Type:</label>
-                                <input type="text" id="employee_type" name="employee_type" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="designation">Designation:</label>
-                                <input type="text" id="designation" name="designation" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="join_date">Join Date:</label>
-                                <input type="date" id="join_date" name="join_date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="salary">Salary:</label>
-                                <input type="text" id="salary" name="salary" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="block_number">Block Number:</label>
-                                <input type="text" id="block_number" name="block_number" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address:</label>
-                                <textarea id="address" name="address" rows="4" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone_no">Phone Number:</label>
-                                <input type="tel" id="phone_no" name="phone_no" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="pin">PIN:</label>
-                                <input type="text" id="pin" name="pin" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="photo">Photo:</label>
-                                <input type="file" id="photo" name="photo">
-                            </div>
-                            <button type="submit" name="submit">Add Employee</button>
-                        </form>
+                        </div>
 
                         
                         

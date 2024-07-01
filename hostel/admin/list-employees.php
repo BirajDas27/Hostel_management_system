@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('includes/config.php');
+include('includes/checklogin.php');
+check_login();
 
 // Handle editing form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -134,38 +137,88 @@ $result = $mysqli->query($sql);
                                 $row_edit = $result_edit->fetch_assoc();
                         ?>
                         <div class="edit-form show-form">
-                            <h3>Edit Employee</h3>
-                            <form action="list-employees.php" method="post" onsubmit="return confirm('Do you want to update the employee details? (Y/N)');">
-                                <input type="hidden" name="employee_id" value="<?php echo $row_edit['id']; ?>">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" value="<?php echo $row_edit['name']; ?>" required><br><br>
-                                <label for="gender">Gender:</label>
-                                <select id="gender" name="gender" required>
-                                    <option value="Male" <?php if ($row_edit['gender'] == 'Male') echo 'selected'; ?>>Male</option>
-                                    <option value="Female" <?php if ($row_edit['gender'] == 'Female') echo 'selected'; ?>>Female</option>
-                                    <option value="Other" <?php if ($row_edit['gender'] == 'Other') echo 'selected'; ?>>Other</option>
-                                </select><br><br>
-                                <label for="employee_type">Employee Type:</label>
-                                <input type="text" id="employee_type" name="employee_type" value="<?php echo $row_edit['employee_type']; ?>" required><br><br>
-                                <label for="designation">Designation:</label>
-                                <input type="text" id="designation" name="designation" value="<?php echo $row_edit['designation']; ?>" required><br><br>
-                                <label for="join_date">Join Date:</label>
-                                <input type="date" id="join_date" name="join_date" value="<?php echo $row_edit['join_date']; ?>" required><br><br>
-                                <label for="salary">Salary:</label>
-                                <input type="text" id="salary" name="salary" value="<?php echo $row_edit['salary']; ?>" required><br><br>
-                                <label for="block_number">Block Number:</label>
-                                <input type="text" id="block_number" name="block_number" value="<?php echo $row_edit['block_number']; ?>" required><br><br>
-                                <label for="address">Address:</label>
-                                <textarea id="address" name="address" rows="4" required><?php echo $row_edit['address']; ?></textarea><br><br>
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" value="<?php echo $row_edit['email']; ?>" required><br><br>
-                                <label for="phone_no">Phone Number:</label>
-                                <input type="text" id="phone_no" name="phone_no" value="<?php echo $row_edit['phone_no']; ?>" required><br><br>
-                                <label for="pin">PIN:</label>
-                                <input type="text" id="pin" name="pin" value="<?php echo $row_edit['pin']; ?>" required><br><br>
-                                <button type="submit" name="edit_employee">Update</button>
-                                <button type="button" onclick="goBack()">Go Back</button>
-                            </form>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="background:#325d88;color: white">Update employee information</div>
+                                <div class="panel-body">
+                                    <form class="form-horizontal" action="list-employees.php" method="post" onsubmit="return confirm('Do you want to update the employee details? (Y/N)');">
+                                        <input type="hidden" name="employee_id" value="<?php echo $row_edit['id']; ?>">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Name:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="name" name="name" value="<?php echo $row_edit['name']; ?>" class="form-control" style="width: 100%" required></div>
+                                            </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Gender:</label>
+                                            <div class="col-sm-8">
+                                                <select id="gender" name="gender" class="form-control" style="width: 100%" required>
+                                                    <option value="Male" <?php if ($row_edit['gender'] == 'Male') echo 'selected'; ?>>Male</option>
+                                                    <option value="Female" <?php if ($row_edit['gender'] == 'Female') echo 'selected'; ?>>Female</option>
+                                                    <option value="Other" <?php if ($row_edit['gender'] == 'Other') echo 'selected'; ?>>Other</option>
+                                                </select></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Employee Type:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="employee_type" name="employee_type" value="<?php echo $row_edit['employee_type']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Designation:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="designation" name="designation" value="<?php echo $row_edit['designation']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Join Date:</label>
+                                            <div class="col-sm-8">
+                                            <input type="date" id="join_date" name="join_date" value="<?php echo $row_edit['join_date']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Salary:</label>
+                                            <div class="col-sm-8">
+                                            <input type="text" id="salary" name="salary" value="<?php echo $row_edit['salary']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">   
+                                            <label class="col-sm-2 control-label">Block Number:</label>
+                                            <div class="col-sm-8">
+                                            <input type="text" id="block_number" name="block_number" value="<?php echo $row_edit['block_number']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Address:</label>
+                                            <div class="col-sm-8">
+                                            <textarea id="address" name="address" rows="4" required class="form-control" style="width: 100%"><?php echo $row_edit['address']; ?></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Email:</label>
+                                            <div class="col-sm-8">
+                                            <input type="email" id="email" name="email" value="<?php echo $row_edit['email']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">   
+                                            <label class="col-sm-2 control-label">Phone Number:</label>
+                                            <div class="col-sm-8">
+                                            <input type="text" id="phone_no" name="phone_no" value="<?php echo $row_edit['phone_no']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">    
+                                            <label class="col-sm-2 control-label">PIN:</label>
+                                            <div class="col-sm-8">
+                                            <input type="text" id="pin" name="pin" value="<?php echo $row_edit['pin']; ?>" class="form-control" style="width: 100%" required>
+                                            </div>
+                                        </div>
+                                        <div class="btns">
+                                            <button type="button" onclick="goBack()">Back</button>
+                                            <button type="submit" name="edit_employee">Update</button>
+                            </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         <script>
                             function goBack() {
@@ -192,8 +245,8 @@ $result = $mysqli->query($sql);
                                         <th onclick="sortTable(6)">Salary</th>
                                         <th onclick="sortTable(7)">Block Number</th>
                                         <th onclick="sortTable(8)">Address</th>
-                                        <th onclick="sortTable(9)">Email</th>
-                                        <th onclick="sortTable(10)">Phone Number</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
                                         <th onclick="sortTable(11)">PIN</th>
                                         <th>Action</th>
                                     </tr>
@@ -217,13 +270,13 @@ $result = $mysqli->query($sql);
                                             echo "<td>" . $row["phone_no"] . "</td>";
                                             echo "<td>" . $row["pin"] . "</td>";
                                             echo "<td style='display: flex'>
-                                                <form action='list-employees.php' method='post'>
+                                                <form action='list-employees.php' method='post' style=\"margin-left:0px;padding:0px\">
                                                     <input type='hidden' name='employee_id' value='" . $row["id"] . "'>
                                                     <div class='edit-button'>
                                                         <button class='action-button' type='submit' name='edit'>Edit</button>
                                                     </div>
                                                 </form>
-                                                <form action='list-employees.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this employee?\");'>
+                                                <form action='list-employees.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this employee?\");' style=\"margin-left:0px;padding:0px\">
                                                     <input type='hidden' name='employee_id' value='" . $row["id"] . "'>
                                                     <div class='delete-button'>
                                                         <button class='action-button' type='submit' name='delete_employee'>Del</button>

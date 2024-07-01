@@ -563,7 +563,7 @@ li {
 }
 .brand .logo {
   box-sizing: border-box;
-  padding: 20px;
+  padding: 20px 10px;
   float: left;
   display: block;
   width: 200px;

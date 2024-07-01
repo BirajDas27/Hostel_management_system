@@ -23,6 +23,7 @@ check_login();
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/access.css">
 </head>
 
 <body>
@@ -34,10 +35,10 @@ check_login();
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="page-title" style="margin-top:4%">Access Log</h2>
+						<h2 class="page-title" style="margin-top: 2%">Access Log</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading">All Courses Details</div>
-							<div class="panel-body">
+							<div class="panel-heading" style="background-color:#325D88;color: white">users accessed</div>
+							<div class="panel-body" style="border-color:#325D88">
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>

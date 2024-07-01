@@ -15,7 +15,7 @@ check_login();
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
 
-    <title>Dashboard</title>
+    <title>add notice</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -24,6 +24,7 @@ check_login();
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/add-notice.css">
 </head>
 
 <body>
@@ -37,17 +38,22 @@ check_login();
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="page-title" style="margin-top:4%">Add Notice</h2>
-                        <form action="add-notice.php" method="post">
-                            <div class="form-group">
-                                <label for="title">Title:</label>
-                                <input type="text" id="title" name="title" required>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"  style="background-color: #325d88;color: white">create notice</div>
+                            <div class="panel-body">
+                                <form action="add-notice.php" method="post">
+                                    <div class="form-group">
+                                        <label for="title">Title:</label>
+                                        <input type="text" id="title" class="form-control" name="title" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content">Content:</label>
+                                        <textarea id="content" name="content" required></textarea>
+                                    </div>
+                                    <button class="align-right" type="submit" name="submit">Add Notice</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="content">Content:</label>
-                                <textarea id="content" name="content" required></textarea>
-                            </div>
-                            <button type="submit" name="submit">Add Notice</button>
-                        </form>
+                        </div>
 
                         <?php
                         if (isset($_POST['submit'])) {
@@ -69,7 +75,7 @@ check_login();
                             $sql = "INSERT INTO notices (title, content) VALUES ('$title', '$content')";
                         
                             if ($mysqli->query($sql) === TRUE) {
-                                echo "New notice added successfully";
+                                echo "<div style=\"text-align:center\">New notice added successfully</div>";
                             } else {
                                 echo "Error: " . $sql . "<br>" . $mysqli->error;
                             }

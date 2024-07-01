@@ -4,20 +4,51 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-// Function to update attendance status
-if (isset($_POST['update_status'])) {
-    $attendance_id = $_POST['attendance_id'];
-    $status = $_POST['status'];
+// Default date selection (or use current date as default)
+$selected_date = isset($_POST['selected_date']) ? $_POST['selected_date'] : date('Y-m-d');
 
-    $updateQuery = "UPDATE attendance SET status = '$status' WHERE id = $attendance_id";
-    $updateResult = mysqli_query($mysqli, $updateQuery);
+// Handle date change and mark absent for missing attendance
+if (isset($_POST['selected_date'])) {
+    $prev_date = date('Y-m-d', strtotime('-1 day', strtotime($_POST['selected_date'])));
+    
+    // Fetch all students from registration table
+    $registrationQuery = "SELECT id FROM registration";
+    $registrationResult = mysqli_query($mysqli, $registrationQuery);
 
-    if (!$updateResult) {
-        die('Update query failed: ' . mysqli_error($mysqli));
+    if ($registrationResult) {
+        while ($row = mysqli_fetch_assoc($registrationResult)) {
+            $user_id = $row['id'];
+
+            // Check if attendance already exists for the selected date
+            $checkQuery = "SELECT id FROM attendance WHERE user_id = $user_id AND date = '$selected_date'";
+            $checkResult = mysqli_query($mysqli, $checkQuery);
+
+            if (mysqli_num_rows($checkResult) == 0) {
+                // If no attendance record exists, insert as absent
+                $insertQuery = "INSERT INTO attendance (user_id, date, status) VALUES ($user_id, '$selected_date', 'Absent')";
+                mysqli_query($mysqli, $insertQuery);
+            }
+        }
     }
-    // Redirect to self to avoid resubmission on refresh
-    header("Location: attendance.php");
-    exit();
+}
+
+// Fetch attendance and registration data for the selected date
+$current_date = date('Y-m-d');
+
+if ($selected_date > $current_date) {
+    $result = false; // No records for future dates
+} else {
+    $fetchQuery = "SELECT a.id as attendance_id, r.roomno, r.course, u.firstName, u.middleName, u.lastName, u.regNo, a.date, COALESCE(a.status, 'Absent') as status 
+                  FROM registration r
+                  LEFT JOIN userregistration u ON r.regno = u.regno
+                  LEFT JOIN attendance a ON u.id = a.user_id AND a.date = '$selected_date'
+                  ORDER BY r.id ASC";
+
+    $result = mysqli_query($mysqli, $fetchQuery);
+
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error($mysqli));
+    }
 }
 ?>
 
@@ -25,8 +56,13 @@ if (isset($_POST['update_status'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#3e454c">
+
     <title>Attendance Management</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -36,11 +72,7 @@ if (isset($_POST['update_status'])) {
     <link rel="stylesheet" href="css/fileinput.min.css">
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .update-form {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/attendance.css">
 </head>
 
 <body>
@@ -55,70 +87,51 @@ if (isset($_POST['update_status'])) {
                     <div class="col-md-12">
                         <h2 class="page-title">Attendance Management</h2>
 
+                        <!-- Date Selection -->
+                        <form method="post" class="form-inline custom-inline-form" style="margin-bottom: 15px">
+                            <div class="form-group">
+                                <label for="selected_date">Select Date:</label>
+                                <input type="date" class="form-control" id="selected_date" name="selected_date" value="<?php echo $selected_date; ?>">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Go</button>
+                        </form>
+
                         <!-- Attendance Table -->
                         <div class="panel panel-default">
-                            <div class="panel-heading">Attendance Details</div>
+                            <div class="panel-heading" style="background-color: #325d88;color:white">Attendance Details</div>
                             <div class="panel-body">
-                                <table id="attendanceTable" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Student Name</th>
-                                            <th>Registration Number</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $searchQuery = "SELECT a.id as attendance_id, u.firstName, u.middleName, u.lastName, u.regNo, a.date, a.status 
-                                                        FROM attendance a 
-                                                        JOIN userregistration u ON a.user_id = u.id";
-
-                                        if (isset($_POST['search'])) {
-                                            $keyword = $_POST['keyword'];
-                                            $searchQuery .= " WHERE 
-                                                u.firstName LIKE '%$keyword%' OR 
-                                                u.middleName LIKE '%$keyword%' OR 
-                                                u.lastName LIKE '%$keyword%' OR 
-                                                u.regNo LIKE '%$keyword%' OR 
-                                                a.date LIKE '%$keyword%' OR 
-                                                a.status LIKE '%$keyword%'";
-                                        }
-
-                                        $searchQuery .= " ORDER BY a.date DESC";
-                                        $result = mysqli_query($mysqli, $searchQuery);
-
-                                        if (!$result) {
-                                            die('Invalid query: ' . mysqli_error($mysqli));
-                                        }
-
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                echo "<tr>";
-                                                echo "<td>" . htmlspecialchars($row['firstName'] . ' ' . $row['middleName'] . ' ' . $row['lastName']) . "</td>";
-                                                echo "<td>" . htmlspecialchars($row['regNo']) . "</td>";
-                                                echo "<td>" . htmlspecialchars($row['date']) . "</td>";
-                                                echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-                                                echo '<td>';
-                                                echo '<button class="btn btn-primary btn-sm toggle-update">Edit</button>';
-                                                echo '<form class="update-form mt-1" style="display: none;" method="post" action="">';
-                                                echo '<input type="hidden" name="attendance_id" value="' . $row['attendance_id'] . '">';
-                                                echo '<select name="status" class="form-control">';
-                                                echo '<option value="Present" ' . (($row['status'] == 'Present') ? 'selected' : '') . '>Present</option>';
-                                                echo '<option value="Absent" ' . (($row['status'] == 'Absent') ? 'selected' : '') . '>Absent</option>';
-                                                echo '</select>';
-                                                echo '<button type="submit" name="update_status" class="btn btn-primary btn-sm mt-1">Update</button>';
-                                                echo '</form>';
-                                                echo '</td>';
-                                                echo "</tr>";
+                                <?php if ($selected_date > $current_date): ?>
+                                    <p>No attendance records available for future dates.</p>
+                                <?php else: ?>
+                                    <table id="attendanceTable" class="table table-striped table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Student Name</th>
+                                                <th>Registration Number</th>
+                                                <th>Room Number</th>
+                                                <th>Course</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            if (mysqli_num_rows($result) > 0) {
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<tr>";
+                                                    echo "<td>" . htmlspecialchars($row['firstName'] . ' ' . $row['middleName'] . ' ' . $row['lastName']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['regNo']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['roomno']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['course']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                                                    echo "</tr>";
+                                                }
+                                            } else {
+                                                echo "<tr><td colspan='5'>No attendance records found</td></tr>";
                                             }
-                                        } else {
-                                            echo "<tr><td colspan='5'>No attendance records found</td></tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -139,19 +152,15 @@ if (isset($_POST['update_status'])) {
     <script src="js/chartData.js"></script>
     <script src="js/main.js"></script>
 
+
     <script>
         $(document).ready(function () {
             $('#attendanceTable').DataTable({
-                "order": [[2, "desc"]], // Order by date column descending initially
-                "paging": true, // Enable paging
-                "lengthMenu": [10, 25, 50, 75, 100], // Page length options
-                "searching": true, // Enable searching
-                "info": true // Enable table information display
-            });
-
-            // Toggle visibility of update form on edit button click
-            $('.toggle-update').click(function () {
-                $(this).closest('tr').find('.update-form').toggle();
+                "order": [[4, "asc"]],
+                "paging": true,
+                "lengthMenu": [10, 25, 50, 75, 100],
+                "searching": false,
+                "info": true
             });
         });
     </script>

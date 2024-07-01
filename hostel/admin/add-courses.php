@@ -3,8 +3,8 @@ session_start();
 include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
-//code for add courses
-if($_POST['submit'])
+
+if (isset($_POST['submit'])) 
 {
 $coursecode=$_POST['cc'];
 $coursesn=$_POST['cns'];
@@ -36,6 +36,7 @@ echo"<script>alert('Course has been added successfully');</script>";
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/add-courses.css">
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 </head>
@@ -54,37 +55,32 @@ echo"<script>alert('Course has been added successfully');</script>";
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">Add courses</div>
+									<div class="panel-heading" style="background-color: #325d88;color: white">Add a course</div>
 									<div class="panel-body">
 										<form method="post" class="form-horizontal">
 											
-											<div class="hr-dashed"></div>
+											
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Course Code </label>
-												<div class="col-sm-8">
-													<input type="text" value="" name="cc"  class="form-control"> </div>
+												<label for="cc">Course Code:</label>
+												
+												<input type="text" value="" name="cc"  class="form-control" required>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Course Name (Short)</label>
-												<div class="col-sm-8">
-	<input type="text" class="form-control" name="cns" id="cns" value="" required="required">
+												<label for="cns">Course Name (Short):</label>
+												
+												<input type="text" class="form-control" name="cns" id="cns" value="" required="required">
 						 
-												</div>
+												
 											</div>
-<div class="form-group">
-									<label class="col-sm-2 control-label">Course Name(Full)</label>
-									<div class="col-sm-8">
-									<input type="text" class="form-control" name="cnf" value="" >
-												</div>
+											<div class="form-group">
+												<label for="cnf" required>Course Name(Full):</label>
+									
+												<input type="text" class="form-control" name="cnf" value="" >
+												
 											</div>
-
-
-
-												<div class="col-sm-8 col-sm-offset-2">
-													
-													<input class="btn btn-primary" type="submit" name="submit" value="Add course">
-												</div>
-											</div>
+											<button class="align-right" type="submit" name="submit">Add course</button>
+												
+											
 
 										</form>
 
@@ -106,7 +102,7 @@ echo"<script>alert('Course has been added successfully');</script>";
 
 			</div>
 		</div>
-	</div>
+	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

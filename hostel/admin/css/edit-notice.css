@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    margin-top: 30px;
+}
+
+.panel{
+    border: 1px solid grey;
+    padding: 30px 20px;
+    border-radius: 5px;
+}
+
+.panel-body{
+    border: 1px solid rgb(194, 186, 173);
+    border-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input{
+    border-color: grey;
+}
+
+textarea{
+    height: 150px;
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+  
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+  
+textarea::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.align-right {
+    float: right;
+    transform:translateX(-10px);
+    font-weight:bold
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 426px) {
+    .page-title{
+      padding-top: 45px;
+    }
+  
+    .list-group-item-heading{
+      font-size: 17px;
+      font-weight: bold;
+    }
+  
+    .sub{
+      display: flex;
+      justify-content: left;
+    }
+
+    .col-sm-12{
+        overflow-x: auto;
+    }
+
+    .col-md-12, .col-sm-2, .col-sm-8, .col-sm-6 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+    }
+    
+    .col-sm-2 {
+        width: 30%;
+    }
+    
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+    
+    .col-sm-6 {
+        width: 50%;
+    }
+    
+    .col-sm-offset-8 {
+        margin-left: 53%;
+    }
+
+    .control-label{
+        padding-top:0px;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+    }
+    .align-right {
+        float: right;
+        transform:translateX(10px)
+    }
+    
+
+  }
+
+  @media only screen and (min-width: 426px) and (max-width: 768px) {
+    .page-title{
+        padding-top: 30px;
+    }
+    .menu-btn{
+        height: 60px;
+    }
+    .align-right {
+        width: 150px;
+        float: right;
+        transform:translateX(-10px)
+    }
+  }

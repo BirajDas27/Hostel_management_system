@@ -35,7 +35,7 @@ check_login();
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="page-title" style="margin-top: 4%">Access Log</h2>
+						<h2 class="page-title" style="margin-top: 2%">Access Log</h2>
 						<div class="panel panel-default">
 							<div class="panel-heading" style="background-color:#325D88;color: white">users accessed</div>
 							<div class="panel-body" style="border-color:#325D88">

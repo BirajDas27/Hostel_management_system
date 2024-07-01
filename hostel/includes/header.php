@@ -1,31 +1,19 @@
 <head>
 	<link rel="stylesheet" href="css/head-side.css">
-	<style>
-		@media only screen and (min-width: 427px) and (max-width: 768px) {
-  			html {
-    			font-size: 20px;
-  			}
-		}
-	</style>
+	<link rel=" stylesheet" href="css/style.css">
 </head>
 <?php if($_SESSION['id'])
 { ?><div class="brand clearfix" style="height:60px">
+		
+		<img src="" style="height:60px; width:60px" alt="logo">
 		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
-		<ul class="ts-profile-nav">
-			<li class="ts-account">
-				<a href="#"><img src="img/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
-				<ul>
-					<li><a href="my-profile.php">My Account</a></li>
-					<li><a href="logout.php">Logout</a></li>
-				</ul>
-			</li>
-		</ul>
 	</div>
 
 <?php
 } else { ?>
-<div class="brand clearfix">
+<div class="brand clearfix" style="height:60px">
+		<img src="" style="height:60px; width:60px" alt="logo">
 		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		
