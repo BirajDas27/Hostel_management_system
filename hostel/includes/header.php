@@ -5,16 +5,30 @@
 <?php if($_SESSION['id'])
 { ?><div class="brand clearfix" style="height:60px">
 		
-		<img src="" style="height:60px; width:60px" alt="logo">
-		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
+		<a href="https://trtcguwahati.org/"><img class="image" src="img/logo.png" style="height:60px; width:60px" alt="logo"></a>
+		<ul class="ts-profile-nav">
+            <li>
+                <a href="https://trtcguwahati.org/contact.html">Contact us</a>
+            </li>
+            <li>
+                <a href="https://trtcguwahati.org/about.html">About us</a>
+            </li>
+        </ul>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 	</div>
 
 <?php
 } else { ?>
 <div class="brand clearfix" style="height:60px">
-		<img src="" style="height:60px; width:60px" alt="logo">
-		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
+        <a href="https://trtcguwahati.org/"><img class="image" src="img/logo.png" style="height:60px; width:60px" alt="logo"></a>
+		<ul class="ts-profile-nav">
+            <li>
+                <a href="https://trtcguwahati.org/contact.html">Contact us</a>
+            </li>
+            <li>
+                <a href="https://trtcguwahati.org/about.html">About us</a>
+            </li>
+        </ul>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		
 	</div>

@@ -273,13 +273,13 @@ $result = $mysqli->query($sql);
                                                 <form action='list-employees.php' method='post' style=\"margin-left:0px;padding:0px\">
                                                     <input type='hidden' name='employee_id' value='" . $row["id"] . "'>
                                                     <div class='edit-button'>
-                                                        <button class='action-button' type='submit' name='edit'>Edit</button>
+                                                        <button class='action-button' type='submit' name='edit' style='margin: 5px 0px;border-bottom-right-radius:0px;border-top-right-radius: 0px'>Edit</button>
                                                     </div>
                                                 </form>
                                                 <form action='list-employees.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this employee?\");' style=\"margin-left:0px;padding:0px\">
                                                     <input type='hidden' name='employee_id' value='" . $row["id"] . "'>
                                                     <div class='delete-button'>
-                                                        <button class='action-button' type='submit' name='delete_employee'>Del</button>
+                                                        <button class='action-button' type='submit' name='delete_employee' style='margin: 5px 0px;border-bottom-left-radius:0px;border-top-left-radius: 0px'>Del</button>
                                                     </div>
                                                 </form>
                                               </td>";

@@ -133,7 +133,7 @@ $aid=$_SESSION['id'];
 
 
 												<div class="col-sm-6 col-sm-offset-3">
-													<button class="btn btn-default" type="submit" style="background-color:#ff4f4f"  onmouseout="this.style.backgroundColor='#ff4f4f'" onmouseover="this.style.backgroundColor='#ff2626'">Clean</button>
+													
 													<input class="btn btn-primary" type="submit" name="update" value="Update Profile">
 												</div>
 											</div>
@@ -152,14 +152,14 @@ $aid=$_SESSION['id'];
  											<?php if(isset($_POST['changepwd']))
 											{ ?>
 
-											<p style="color: red"><?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg']=""); ?></p>
+											<p style="color: green"><?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg']=""); ?></p>
 											<?php } ?>
 											<div class="hr-dashed-2"></div>
 											<div class="form-group">
 												<label class="col-sm-4 control-label">Old Password </label>
 												<div class="col-sm-8">
 													<input type="password" value="" name="oldpassword" id="oldpassword" class="form-control" onBlur="checkpass()" required="required">
-									 				<span id="password-availability-status" class="help-block m-b-none" style="font-size:12px;"></span> 
+									 				<span id="password-availability-status" class="help-block m-b-none" style="font-size:12px"></span> 
 												</div>
 											</div>
 											<div class="form-group">
@@ -178,7 +178,7 @@ $aid=$_SESSION['id'];
 
 
 												<div class="col-sm-6 col-sm-offset-3">
-													<button class="btn btn-default" type="submit" style="background-color:#ff4f4f"  onmouseout="this.style.backgroundColor='#ff4f4f'" onmouseover="this.style.backgroundColor='#ff2626'">Clean</button>
+													
 													<input type="submit" name="changepwd" Value="Change Password" class="btn btn-primary">
 												</div>
 

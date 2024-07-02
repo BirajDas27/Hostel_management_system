@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 01:54 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Jul 02, 2024 at 10:31 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
   `password` varchar(300) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `updation_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin`
@@ -54,7 +54,7 @@ CREATE TABLE `adminlog` (
   `adminid` int(11) NOT NULL,
   `ip` varbinary(16) NOT NULL,
   `logintime` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -67,17 +67,47 @@ CREATE TABLE `attendance` (
   `user_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `status` enum('Present','Absent') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `attendance`
 --
 
 INSERT INTO `attendance` (`id`, `user_id`, `date`, `status`) VALUES
-(1, 21, '2024-06-19', 'Present'),
-(2, 21, '2024-06-19', 'Present'),
-(3, 10, '2024-06-19', 'Present'),
-(4, 19, '2024-06-19', 'Absent');
+(0, 6, '2024-06-30', 'Absent'),
+(0, 7, '2024-06-30', 'Absent'),
+(0, 8, '2024-06-30', 'Absent'),
+(0, 9, '2024-06-30', 'Absent'),
+(0, 6, '2024-07-01', 'Absent'),
+(0, 7, '2024-07-01', 'Absent'),
+(0, 8, '2024-07-01', 'Absent'),
+(0, 9, '2024-07-01', 'Absent'),
+(0, 6, '2024-06-29', 'Absent'),
+(0, 7, '2024-06-29', 'Absent'),
+(0, 8, '2024-06-29', 'Absent'),
+(0, 9, '2024-06-29', 'Absent'),
+(0, 10, '2024-06-30', 'Present'),
+(0, 19, '2024-06-30', 'Present'),
+(0, 10, '2024-07-01', 'Present'),
+(0, 10, '2024-07-02', 'Present'),
+(0, 19, '2024-07-02', 'Present');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bills`
+--
+
+CREATE TABLE `bills` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `due_date` date NOT NULL,
+  `status` enum('unpaid','paid') DEFAULT 'unpaid',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `paid_date` datetime DEFAULT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -91,7 +121,7 @@ CREATE TABLE `courses` (
   `course_sn` varchar(255) DEFAULT NULL,
   `course_fn` varchar(255) DEFAULT NULL,
   `posting_date` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `courses`
@@ -126,15 +156,19 @@ CREATE TABLE `employees` (
   `phone_no` varchar(20) NOT NULL,
   `pin` varchar(20) NOT NULL,
   `photo_path` varchar(255) DEFAULT 'default.jpg'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`id`, `name`, `gender`, `employee_type`, `designation`, `join_date`, `salary`, `block_number`, `address`, `email`, `phone_no`, `pin`, `photo_path`) VALUES
-(1, 'asasd', 'Male', 'rgs', 'sd', '2024-06-18', '1000.00', 'ery', 'asfea', 'aa@dgfqwr.xdvd', '9876543210', '777777', 'uploads/dog.jpg'),
-(2, 'asca', 'Male', 'asca', 'asc', '2024-06-05', '5555.00', 'ascasc', 'ascasc', 'aa@gmail.com', '9876543210', '545155', 'uploads/dog2.jpg');
+(1, 'asasd', 'Male', 'rgs', 'sd', '2024-06-18', 1000.00, 'ery', 'asfea', 'aa@dgfqwr.xdvd', '9876543210', '777776', 'uploads/dog.jpg'),
+(2, 'asca', 'Male', 'asca', 'asc', '2024-06-05', 5555.00, 'ascasc', 'ascasc', 'aa@gmail.com', '9876543210', '545155', 'uploads/dog2.jpg'),
+(3, 'q', 'Male', 'sdf', 'sdfsf', '2024-06-30', 2000.00, '23', 'sdfsdf', 'sdfsdf@gmail.com', '2534536', '456456', 'uploads/Screenshot 2023-08-07 110335.png'),
+(4, 'ww', 'Male', 'fsdf', 'sdfsdf', '2024-07-01', 234.00, '23', 'dfsfsdf', 'fsf@gmail.com', '456457647', '34535', 'uploads/wallpaperflare.com_wallpaper (1).jpg'),
+(5, 'dfg', 'Male', 'dfgd', 'gdg', '2024-07-15', 0.00, 'fg', 'dfg', 'dfss@gmail.com', '345345', '345345', 'uploads/Screenshot 2024-06-30 214453.png'),
+(6, 'sdfsfsdf', 'Female', 'sdfsdf', 'sfsdf', '2024-07-04', 3453.00, '45', 'dfgdgdg', 'dfg@gmail.com', '1122334455', '234433', 'uploads/Screenshot 2023-08-07 110335.png');
 
 -- --------------------------------------------------------
 
@@ -147,7 +181,7 @@ CREATE TABLE `notices` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notices`
@@ -158,7 +192,9 @@ INSERT INTO `notices` (`id`, `title`, `content`, `created_at`) VALUES
 (2, 'test 2', 'vdvfhjdnhbvl;', '2024-06-15 13:38:24'),
 (3, 'test 3', 'fdjhbdoif', '2024-06-15 13:40:11'),
 (4, 't 4', 'sdb', '2024-06-15 14:25:47'),
-(5, 'ergwetsfdafg', 'sdgfsdg\r\n', '2024-06-18 10:59:16');
+(5, 'ergwetsfdafg', 'sdgfsdg\r\n', '2024-06-18 10:59:16'),
+(6, 'ssf', 'a\r\na\r\na\r\na\r\na\r\na\r\na\r\na', '2024-07-01 15:40:25'),
+(7, 'ssf', 'a\r\na\r\na\r\na\r\na\r\na\r\na\r\na', '2024-07-01 15:43:57');
 
 -- --------------------------------------------------------
 
@@ -196,14 +232,13 @@ CREATE TABLE `registration` (
   `pmntPincode` int(11) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(500) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `registration`
 --
 
 INSERT INTO `registration` (`id`, `roomno`, `seater`, `feespm`, `foodstatus`, `stayfrom`, `duration`, `course`, `regno`, `firstName`, `middleName`, `lastName`, `gender`, `contactno`, `emailid`, `egycontactno`, `guardianName`, `guardianRelation`, `guardianContactno`, `corresAddress`, `corresCIty`, `corresState`, `corresPincode`, `pmntAddress`, `pmntCity`, `pmnatetState`, `pmntPincode`, `postingDate`, `updationDate`) VALUES
-(6, 100, 5, 8000, 0, '2016-04-22', 5, 'Bachelor  of Technology', 10806121, 'Anuj', '', 'kumar', 'male', 8285703354, 'anuj.lpu1@gmail.com', 0, 'XYZ', 'Mother', 8285703354, 'New Delhi India', 'Aligarh', 'Uttar Pradesh', 202001, 'New Delhi India', 'Delhi', 'Delhi (NCT)', 202001, '2016-04-16 08:24:09', ''),
 (7, 100, 5, 8000, 1, '2016-06-17', 4, 'Bachelor of Engineering', 108061211, 'Test', 'test', 'kumar', 'male', 8467067344, 'test@gmail.com', 123456789, 'test', 'test', 1236547890, 'New Delhi India', 'Aligarh', 'Uttar Pradesh', 202001, 'New Delhi India', 'Delhi', 'Delhi (NCT)', 202001, '2016-06-23 11:54:35', ''),
 (8, 112, 3, 4000, 0, '2016-06-27', 5, 'Bachelor  of Science', 102355, 'rahul', 'kumar', 'Singh', 'male', 6786786786, 'rahul@gmail.com', 789632587, 'demo', 'demo', 1234567890, 'New Delhi', 'Delhi', 'Delhi (NCT)', 110001, 'New Delhi', 'Delhi', 'Delhi (NCT)', 110001, '2016-06-26 16:31:08', ''),
 (9, 132, 5, 2000, 1, '2016-06-28', 6, 'Bachelor of Engineering', 586952, 'Ajay', '', 'kumar', 'male', 8596185625, 'ajay@gmail.com', 8285703354, 'demo', 'demo', 8285703354, 'New Delhi India', 'Aligarh', 'Uttar Pradesh', 202001, 'New Delhi India', 'Delhi', 'Delhi (NCT)', 202001, '2016-06-26 16:40:07', '');
@@ -220,14 +255,14 @@ CREATE TABLE `rooms` (
   `room_no` int(11) DEFAULT NULL,
   `fees` int(11) DEFAULT NULL,
   `posting_date` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `seater`, `room_no`, `fees`, `posting_date`) VALUES
-(1, 5, 100, 8000, '2016-04-11 22:45:43'),
+(1, 4, 100, 8000, '2016-04-11 22:45:43'),
 (2, 2, 201, 6000, '2016-04-12 01:30:47'),
 (3, 2, 200, 6000, '2016-04-12 01:30:58'),
 (4, 3, 112, 4000, '2016-04-12 01:31:07'),
@@ -244,15 +279,16 @@ CREATE TABLE `salaries` (
   `employee_id` int(11) NOT NULL,
   `bonus_salary` decimal(10,2) NOT NULL,
   `date_added` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `salaries`
 --
 
 INSERT INTO `salaries` (`id`, `employee_id`, `bonus_salary`, `date_added`) VALUES
-(1, 1, '999.00', '2024-06-20 11:46:33'),
-(2, 2, '555.00', '2024-06-20 11:49:39');
+(1, 1, 999.00, '2024-06-20 11:46:33'),
+(2, 2, 555.00, '2024-06-20 11:49:39'),
+(3, 3, 500.00, '2024-07-01 15:21:38');
 
 -- --------------------------------------------------------
 
@@ -263,7 +299,7 @@ INSERT INTO `salaries` (`id`, `employee_id`, `bonus_salary`, `date_added`) VALUE
 CREATE TABLE `states` (
   `id` int(11) NOT NULL,
   `State` varchar(150) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `states`
@@ -321,7 +357,7 @@ CREATE TABLE `userlog` (
   `city` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   `loginTime` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `userlog`
@@ -351,7 +387,17 @@ INSERT INTO `userlog` (`id`, `userId`, `userEmail`, `userIp`, `city`, `country`,
 (22, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-19 11:25:50'),
 (23, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 12:05:03'),
 (24, 19, 'rahul@gmail.com', 0x3a3a31, '', '', '2024-06-19 12:06:49'),
-(25, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-19 13:52:42');
+(25, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-19 13:52:42'),
+(26, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-28 17:23:47'),
+(27, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 05:44:10'),
+(28, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 08:07:33'),
+(29, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 14:55:25'),
+(30, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 15:28:35'),
+(31, 19, 'rahul@gmail.com', 0x3a3a31, '', '', '2024-06-30 14:14:09'),
+(32, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-01 15:25:51'),
+(33, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-02 06:44:25'),
+(34, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-02 07:36:11'),
+(35, 19, 'rahul@gmail.com', 0x3a3a31, '', '', '2024-07-02 08:19:08');
 
 -- --------------------------------------------------------
 
@@ -372,7 +418,7 @@ CREATE TABLE `userregistration` (
   `regDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(45) DEFAULT NULL,
   `passUdateDate` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `userregistration`
@@ -393,13 +439,6 @@ INSERT INTO `userregistration` (`id`, `regNo`, `firstName`, `middleName`, `lastN
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `attendance`
---
-ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `courses`
@@ -469,12 +508,6 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `attendance`
---
-ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
@@ -484,13 +517,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `notices`
 --
 ALTER TABLE `notices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `registration`
@@ -508,7 +541,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `salaries`
 --
 ALTER TABLE `salaries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -520,7 +553,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `userregistration`
@@ -531,12 +564,6 @@ ALTER TABLE `userregistration`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `attendance`
---
-ALTER TABLE `attendance`
-  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `userregistration` (`id`);
 
 --
 -- Constraints for table `salaries`
