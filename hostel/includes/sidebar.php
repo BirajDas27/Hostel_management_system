@@ -10,6 +10,7 @@
             <li><a href="access-log.php"><i class="fa fa-history"></i>Access Log</a></li>
             <li><a href="view-notices.php"><i class="fa fa-bullhorn"></i>Notice Board</a></li>
             <li><a href="check-attendance.php"><i class="fa fa-check-square"></i>Check Attendance</a></li>
+            <li><a href="user_billing.php"><i class="fa fa-credit-card"></i>Payment</a></li>
             <li><a href="logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
 
         <?php } else { ?>

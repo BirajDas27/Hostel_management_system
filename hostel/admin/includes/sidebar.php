@@ -37,6 +37,7 @@
                 <ul class="sub-menu">
                     <li><a href="manage-students.php">Students</a></li>
                     <li><a href="attendance.php">Attendance</a></li>
+                    <li><a href="billing_management.php">Bills</a></li>
                 </ul>
             </li>
             <li><a href="access-log.php"><i class="fa fa-history"></i> User Access logs</a></li>

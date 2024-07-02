@@ -257,7 +257,7 @@ $result = $mysqli->query($sql);
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
                                             echo "<td>" . $row["id"] . "</td>";
-                                            echo "<td><img src='" . $row["photo_path"] . "' height='50'></td>";
+                                            echo "<td><img src='" . $row["photo_path"] . "' height='50' width='55'></td>";
                                             echo "<td>" . $row["name"] . "</td>";
                                             echo "<td>" . $row["gender"] . "</td>";
                                             echo "<td>" . $row["employee_type"] . "</td>";

@@ -4,7 +4,7 @@
 <?php if($_SESSION['id'])
 { ?><div class="brand clearfix" style="height:60px">
 		
-		<img src="" style="height:60px; width:60px" alt="logo">
+		<img class="image" src="" style="height:60px; width:60px" alt="logo">
 		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 	</div>
@@ -12,7 +12,7 @@
 <?php
 } else { ?>
 <div class="brand clearfix">
-		<img src="" style="height:60px; width:60px" alt="logo">
+		<img class="image" src="" style="height:60px; width:60px" alt="logo">
 		<a href="#" class="logo" style="font-size:16px;">TRTC</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		
