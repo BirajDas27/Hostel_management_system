@@ -745,6 +745,35 @@ li {
   height: 100%;
   width: 100%;
 }
+.text-center{
+  color: white;
+}
+.well{
+  background-position: center;
+  background-size: 280%;
+  filter:brightness(1.5);
+}
+.text-uppercase{
+  color: white;
+  filter: brightness(0.7);
+}
+.btn{
+  filter: brightness(0.7);
+}
+
+
+@media only screen and (min-width: 250px) and (max-width:426px) {
+  .well{
+    margin: auto 20px;
+  }
+  .content{
+    padding-top: 70px;
+  }
+  .well{
+    background-size: 480%;
+    background-position: center;
+  }
+}
 
 /* Notice */
 .panel-body-notice{

@@ -58,8 +58,19 @@ check_login();
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<div class='notice'>";
-                                    echo "<div class='notice-header'><div class='title'><span>" . $row['title'] . "</span></div><div class='time'><span>" . $row['created_at'] . "</span></div></div>";
-                                    echo "<div class='notice-content'>" . $row['content'] . "</div>";
+                                        echo "<div class='notice-header'>";
+                                            echo "<div class='title'>";
+                                                echo "<span class='title-slide'>";
+                                                    echo $row['title'];
+                                                echo "</span>";
+                                            echo "</div>";
+                                            echo "<div class='time'>";
+                                                echo "<span>";
+                                                    echo $row['created_at'];
+                                                echo "</span>";
+                                            echo "</div>";
+                                        echo "</div>";
+                                        echo "<div class='notice-content'>" . $row['content'] . "</div>";
                                     echo "</div>";
                                 }
                             } else {

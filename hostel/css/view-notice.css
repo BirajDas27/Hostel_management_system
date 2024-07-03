@@ -49,6 +49,31 @@
 
 }
 
+@keyframes slide{
+    from{
+      transform: translateX(0%);
+    }
+    to{
+      transform: translateX(-100%);
+    }
+  }
+  
+  .title {
+    animation: colorChange 1s infinite;
+    width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .title:hover .title-slide{
+    animation-play-state: paused;
+  }
+  
+  .title-slide{
+    display: inline-block;
+    animation: 15s slide infinite linear;
+    margin-right: 40px;
+  }
+
 .notice-header .time{
     text-align: right;
     color: rgb(186, 186, 186);

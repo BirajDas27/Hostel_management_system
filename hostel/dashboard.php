@@ -85,8 +85,16 @@ check_login();
                                                     if ($noticeResult->num_rows > 0) {
                                                         while ($notice = $noticeResult->fetch_assoc()) {
                                                             echo '<li class="list-group-item">';
-                                                            echo '<h5 class="list-group-item-heading"><div class="sub">' . $notice['title'] . '</div> <small>' . $notice['created_at'] . '</small></h5>';
+                                                                echo '<h5 class="list-group-item-heading">';
+                                                                    echo '<div class="sub">';
+                                                                        echo '<div class="sub-slide">';
+                                                                            echo $notice['title'];
+                                                                        echo '</div>';
+                                                                    echo '</div>';
+                                                                    echo '<small>' . $notice['created_at'] . '</small>';
+                                                                echo '</h5>';
                                                             echo '</li>';
+
                                                         }
                                                     } else {
                                                         echo '<li class="list-group-item">No notices found.</li>';

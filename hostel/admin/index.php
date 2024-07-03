@@ -55,11 +55,10 @@ $stmt=$mysqli->prepare("SELECT username,email,password,id FROM admin WHERE (user
     <div class="form-content">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3" style="margin-top:10%">
-            <h1 class="text-center text-bold ">Admin Login</h1>
-            <div class="well row pt-2x pb-3x bk-light">
+          <div class="content col-md-6 col-md-offset-3" style="margin-top:10%">
+            <h1 class="text-center text-bold ">Admin login</h1>
+            <div class="well row pt-2x pb-3x bk-light" style="background-image: url('img/login-bg.png');">
               <div class="col-md-8 col-md-offset-2">
-              
                 <form action="" class="mt" method="post">
                   <label for="" class="text-uppercase text-sm">Your Username or Email</label>
                   <input type="text" placeholder="Username" name="username" class="form-control mb">

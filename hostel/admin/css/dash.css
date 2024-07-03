@@ -50,10 +50,30 @@ body {
     
   }
 
+  @keyframes slide{
+    from{
+      transform: translateX(0%);
+    }
+    to{
+      transform: translateX(-100%);
+    }
+  }
+  
   .sub {
-  width: 400px;
-  overflow: hidden;
-}
+    animation: colorChange 1s infinite;
+    width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .sub:hover .sub-slide{
+    animation-play-state: paused;
+  }
+  
+  .sub-slide{
+    display: inline-block;
+    animation: 15s slide infinite linear;
+    margin-right: 40px;
+  }
 
 @media only screen and (min-width: 250px) and (max-width: 426px) {
   .page-title{
