@@ -27,10 +27,10 @@ check_login();
 </head>
 
 <body>
-	<?php include('includes/header.php');?>
+	<?php include('includes/header.php'); ?>
 
 	<div class="ts-main-content">
-			<?php include('includes/sidebar.php');?>
+		<?php include('includes/sidebar.php'); ?>
 		<div class="content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
@@ -63,42 +63,42 @@ check_login();
 										</tr>
 									</tfoot>
 									<tbody>
-<?php	
-$aid=$_SESSION['id'];
-$ret="select * from userlog";
-$stmt= $mysqli->prepare($ret) ;
-//$stmt->bind_param('i',$aid);
-$stmt->execute() ;
-$res=$stmt->get_result();
-$cnt=1;
-while($row=$res->fetch_object())
-	  {
-	  	?>
-<tr><td><?php echo $cnt;;?></td>
-<td><?php echo $row->userId;?></td>
-<td><?php echo $row->userEmail;?></td>
-<td><?php echo $row->userIp;?></td>
-<td><?php echo $row->city;?></td>
-<td><?php echo $row->country;?></td>
-<td><?php echo $row->loginTime;?></td>
-										</tr>
-									<?php
-$cnt=$cnt+1;
-									 } ?>
-											
-										
+										<?php
+										$aid = $_SESSION['id'];
+										$ret = "select * from userlog";
+										$stmt = $mysqli->prepare($ret);
+										//$stmt->bind_param('i',$aid);
+										$stmt->execute();
+										$res = $stmt->get_result();
+										$cnt = 1;
+										while ($row = $res->fetch_object()) {
+										?>
+											<tr>
+												<td><?php echo $cnt;; ?></td>
+												<td><?php echo $row->userId; ?></td>
+												<td><?php echo $row->userEmail; ?></td>
+												<td><?php echo $row->userIp; ?></td>
+												<td><?php echo $row->city; ?></td>
+												<td><?php echo $row->country; ?></td>
+												<td><?php echo $row->loginTime; ?></td>
+											</tr>
+										<?php
+											$cnt = $cnt + 1;
+										} ?>
+
+
 									</tbody>
 								</table>
 
-								
+
 							</div>
 						</div>
 
-					
+
 					</div>
 				</div>
 
-			
+
 
 			</div>
 		</div>

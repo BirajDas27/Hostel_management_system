@@ -1,0 +1,217 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    margin-top: 50px;
+}
+
+.panel-body{
+    padding-top: 0px;
+}
+
+.flex-row{
+    display: flex;
+    border-bottom: 1px solid rgb(180, 179, 179);
+    margin-bottom: 20px;
+}
+
+.flex-row form{
+    width: 50%;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding:10px;
+    padding-top: 0px;
+    margin-top: 10px;
+    align-items: center;
+    border-left: 1px solid rgb(180, 179, 179);
+}
+
+h3{
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.flex-col form{
+    display: flex;
+    width: 100%;
+}
+.flex-col .form-group{
+    width: 100%;
+}
+
+
+.flex-col form button{
+    max-height: 46px;
+    transform: translateY(25px);
+    margin-left: 5px
+}
+
+.thead-dark{
+    background-color: #506b85;
+    color: white;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 426px) {
+    .page-title{
+      padding-bottom: 20px;
+      padding-top: 50px;
+    }
+  
+    .flex-row{
+        display:block;
+        border-bottom: 0px;
+    }
+    
+    .flex-row form{
+        width: 100%;
+        margin: 20px 5px;
+    }
+    
+    .flex-col{
+        width: 100%;
+        padding:10px;
+        margin: 10px auto;
+        align-items: center;
+        border-top: 1px solid rgb(180, 179, 179);
+        border-bottom: 1px solid rgb(180, 179, 179);
+        border-left: 0px;
+    }
+    
+    h3{
+        margin-top: 0px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .flex-col .form-group{
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+    }
+
+    .flex-col form{
+        margin: 0px auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .flex-col form button{
+        height: 46px;
+        transform: translateY(0px);
+        margin: 10px 0px 0px 5px;
+        width: 25%;
+    }
+
+    .sort{
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .sort .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 10px;
+    }
+
+    .overflow-auto{
+        overflow: auto;
+    }
+
+    table{
+        min-width: 200%;
+    }
+
+    table td{
+        max-height: 100px;
+    }
+
+    
+  }
+
+  @media only screen and (min-width: 426px) and (max-width: 768px) {
+    .menu-btn{
+      height: 60px;
+    }
+    .page-title{
+        padding-top: 0px;
+    }
+    .flex-row{
+        display:block;
+        border-bottom: 0px;
+    }
+    
+    .flex-row form{
+        width: 100%;
+        margin: 20px 5px;
+    }
+    .flex-row form button{
+        width: 67%;
+        text-align: center;
+    }
+    
+    .flex-col{
+        width: 100%;
+        padding:10px;
+        margin: 10px auto;
+        align-items: center;
+        border-top: 1px solid rgb(180, 179, 179);
+        border-bottom: 1px solid rgb(180, 179, 179);
+        border-left: 0px;
+    }
+    
+    h3{
+        margin-top: 0px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .flex-col .form-group{
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+    }
+
+    .flex-col form{
+        margin: 0px auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .flex-col form button{
+        height: 46px;
+        transform: translateY(0px);
+        margin: 10px 0px 0px 5px;
+        width: 25%;
+    }
+
+    .sort{
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .sort .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 10px;
+    }
+
+    .overflow-auto{
+        overflow: auto;
+    }
+
+    table{
+        min-width: 150%;
+    }
+
+    table td{
+        max-height: 100px;
+    }
+  }

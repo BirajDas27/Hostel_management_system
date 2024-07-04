@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+    padding-top: 45px;
+}
+
+.panel{
+    margin-top: 20px;
+}
+
+.form-group{
+    width: 50%;
+    display: flex;
+}
+.form-group label{
+    width: 13%;
+    margin-top: 10px;
+}
+.form-group select{
+    width: 87%;
+}
+.thead-dark{
+    background-color: #506b85;
+    color: white;
+}
+.mb-3{
+    font-weight: bold;
+}
+.overflow-auto{
+    max-height: 300px;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 426px) {
+    .page-title{
+      padding-bottom: 20px;
+      padding-top: 50px;
+    }
+    .form-group{
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+    }
+    .form-group label{
+        width: 20%;
+        margin-top: 10px;
+    }
+    .form-group select{
+        width: 80%;
+    }
+    
+    .sort{
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .sort .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 10px;
+    }
+
+    .overflow-auto{
+        overflow: auto;
+        max-height: 240px;
+    }
+
+    table{
+        min-width: 200%;
+    }
+    .mb-3{
+        text-align: center;
+    }
+
+    
+  }
+
+  @media only screen and (min-width: 426px) and (max-width: 768px) {
+    .menu-btn{
+      height: 60px;
+    }
+    .page-title{
+        padding-top: 40px;
+    }
+    .form-group{
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+    }
+    .form-group label{
+        width: 20%;
+        margin-top: 10px;
+        text-align: right;
+        margin-right: 20px;
+    }
+    .form-group select{
+        width: 80%;
+    }
+
+    .sort{
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .sort .form-group{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 10px;
+    }
+
+    .overflow-auto{
+        overflow: auto;
+    }
+
+    table{
+        min-width: 150%;
+    }
+
+  }

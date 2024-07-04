@@ -749,9 +749,10 @@ li {
   color: white;
 }
 .well{
-  background-position: center;
-  background-size: 280%;
-  filter:brightness(1.5);
+  background: transparent;
+  filter:brightness(1.4);
+  border: 2px solid rgb(98, 98, 98);
+  padding-top: 10px;
 }
 .text-uppercase{
   color: white;
@@ -759,6 +760,9 @@ li {
 }
 .btn{
   filter: brightness(0.7);
+}
+.content{
+  transform: translateY(70px)
 }
 
 
