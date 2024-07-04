@@ -751,8 +751,9 @@ li {
 .well{
   background: transparent;
   filter:brightness(1.4);
-  border: 2px solid rgb(98, 98, 98);
+  border: 1px solid rgb(164, 164, 164);
   padding-top: 10px;
+  backdrop-filter: blur(5px) brightness(1.5);
 }
 .text-uppercase{
   color: white;
