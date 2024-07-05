@@ -60,6 +60,42 @@ h3{
     background-color: #506b85;
     color: white;
 }
+.overflow-auto{
+    max-height: 400px;
+    overflow-x: auto;
+}
+
+
+  td,th{
+    text-align: center;
+    white-space:nowrap;
+  }
+
+  .custom button{
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    width: 100px;
+  }
+
+  span{
+    background-color: greenyellow;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .mb-4{
+    width: 100%;
+    border-bottom: 1px solid rgb(190, 190, 190);
+  }
+  .mb-4 button{
+    margin: 20px auto;
+  }
+  .mb-3{
+    margin-top: 20px;
+  }
+  
+  
 
 @media only screen and (min-width: 250px) and (max-width: 426px) {
     .page-title{
@@ -133,6 +169,9 @@ h3{
     table td{
         max-height: 100px;
     }
+    .col-sm-12{
+        overflow-x: auto;
+    }
 
     
   }
@@ -203,8 +242,8 @@ h3{
         margin: 0px 10px;
     }
 
-    .overflow-auto{
-        overflow: auto;
+    .col-sm-12{
+        overflow-x: auto;
     }
 
     table{
@@ -214,4 +253,16 @@ h3{
     table td{
         max-height: 100px;
     }
+    .mb-4{
+        width: 100%;
+        border-bottom: 1px solid rgb(190, 190, 190);
+      }
+      .mb-4 button{
+        max-width: 70%;
+        margin: 20px auto;
+        
+      }
+      .mb-3{
+        margin-top: 20px;
+      }
   }

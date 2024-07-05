@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 10:31 AM
+-- Generation Time: Jul 05, 2024 at 04:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -74,23 +74,8 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `user_id`, `date`, `status`) VALUES
-(0, 6, '2024-06-30', 'Absent'),
-(0, 7, '2024-06-30', 'Absent'),
-(0, 8, '2024-06-30', 'Absent'),
-(0, 9, '2024-06-30', 'Absent'),
-(0, 6, '2024-07-01', 'Absent'),
-(0, 7, '2024-07-01', 'Absent'),
-(0, 8, '2024-07-01', 'Absent'),
-(0, 9, '2024-07-01', 'Absent'),
-(0, 6, '2024-06-29', 'Absent'),
-(0, 7, '2024-06-29', 'Absent'),
-(0, 8, '2024-06-29', 'Absent'),
-(0, 9, '2024-06-29', 'Absent'),
-(0, 10, '2024-06-30', 'Present'),
-(0, 19, '2024-06-30', 'Present'),
-(0, 10, '2024-07-01', 'Present'),
-(0, 10, '2024-07-02', 'Present'),
-(0, 19, '2024-07-02', 'Present');
+(0, 3, '2024-07-04', 'Present'),
+(0, 7, '2024-07-05', 'Present');
 
 -- --------------------------------------------------------
 
@@ -128,13 +113,13 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `course_code`, `course_sn`, `course_fn`, `posting_date`) VALUES
-(1, 'B10992', 'B.Tech', 'Bachelor  of Technology', '2016-04-11 19:31:42'),
-(2, 'BCOM1453', 'B.Com', 'Bachelor Of commerce ', '2016-04-11 19:32:46'),
-(3, 'BSC12', 'BSC', 'Bachelor  of Science', '2016-04-11 19:33:23'),
-(4, 'BC36356', 'BCA', 'Bachelor Of Computer Application', '2016-04-11 19:34:18'),
-(5, 'MCA565', 'MCA', 'Master of Computer Application', '2016-04-11 19:34:40'),
-(6, 'MBA75', 'MBA', 'Master of Business Administration', '2016-04-11 19:34:59'),
-(7, 'BE765', 'BE', 'Bachelor of Engineering', '2016-04-11 19:35:19');
+(1, 'B10992', 'B.Tech', 'Bachelor  of Technology', '2020-07-04 19:31:42'),
+(2, 'BCOM1453', 'B.Com', 'Bachelor Of commerce ', '2020-07-04 19:31:42'),
+(3, 'BSC12', 'BSC', 'Bachelor  of Science', '2020-07-04 19:31:42'),
+(4, 'BC36356', 'BCA', 'Bachelor Of Computer Application', '2020-07-04 19:31:42'),
+(5, 'MCA565', 'MCA', 'Master of Computer Application', '2020-07-04 19:31:42'),
+(6, 'MBA75', 'MBA', 'Master of Business Administration', '2020-07-04 19:31:42'),
+(7, 'BE765', 'BE', 'Bachelor of Engineering', '2020-07-04 19:31:42');
 
 -- --------------------------------------------------------
 
@@ -163,12 +148,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `gender`, `employee_type`, `designation`, `join_date`, `salary`, `block_number`, `address`, `email`, `phone_no`, `pin`, `photo_path`) VALUES
-(1, 'asasd', 'Male', 'rgs', 'sd', '2024-06-18', 1000.00, 'ery', 'asfea', 'aa@dgfqwr.xdvd', '9876543210', '777776', 'uploads/dog.jpg'),
-(2, 'asca', 'Male', 'asca', 'asc', '2024-06-05', 5555.00, 'ascasc', 'ascasc', 'aa@gmail.com', '9876543210', '545155', 'uploads/dog2.jpg'),
-(3, 'q', 'Male', 'sdf', 'sdfsf', '2024-06-30', 2000.00, '23', 'sdfsdf', 'sdfsdf@gmail.com', '2534536', '456456', 'uploads/Screenshot 2023-08-07 110335.png'),
-(4, 'ww', 'Male', 'fsdf', 'sdfsdf', '2024-07-01', 234.00, '23', 'dfsfsdf', 'fsf@gmail.com', '456457647', '34535', 'uploads/wallpaperflare.com_wallpaper (1).jpg'),
-(5, 'dfg', 'Male', 'dfgd', 'gdg', '2024-07-15', 0.00, 'fg', 'dfg', 'dfss@gmail.com', '345345', '345345', 'uploads/Screenshot 2024-06-30 214453.png'),
-(6, 'sdfsfsdf', 'Female', 'sdfsdf', 'sfsdf', '2024-07-04', 3453.00, '45', 'dfgdgdg', 'dfg@gmail.com', '1122334455', '234433', 'uploads/Screenshot 2023-08-07 110335.png');
+(7, 'sdf', 'Male', 'sdf', 'sdf', '2024-07-04', 345.00, 'sf', 'sdfsdfs', 'sfssf@gmail.com', '345345345', '345345', 'uploads/Screenshot 2024-06-30 214453.png');
 
 -- --------------------------------------------------------
 
@@ -188,13 +168,20 @@ CREATE TABLE `notices` (
 --
 
 INSERT INTO `notices` (`id`, `title`, `content`, `created_at`) VALUES
-(1, 'Hello', 'Test 1', '2024-06-15 13:27:39'),
-(2, 'test 2', 'vdvfhjdnhbvl;', '2024-06-15 13:38:24'),
-(3, 'test 3', 'fdjhbdoif', '2024-06-15 13:40:11'),
-(4, 't 4', 'sdb', '2024-06-15 14:25:47'),
-(5, 'ergwetsfdafg', 'sdgfsdg\r\n', '2024-06-18 10:59:16'),
-(6, 'ssf', 'a\r\na\r\na\r\na\r\na\r\na\r\na\r\na', '2024-07-01 15:40:25'),
-(7, 'ssf', 'a\r\na\r\na\r\na\r\na\r\na\r\na\r\na', '2024-07-01 15:43:57');
+(8, 'sdfljh sdflshjkdfsdfljk dfsldkjfsdf lfsdlfjk lfsdlfkj df dfklsjdfls jdflskj lsjfsldkj sljs fsf sf sfj sdlfkjs sf sl jsf s', 'fsdfoihsdflsjk   slfj sljfsdflsfjkds lfjssdf ljf \r\nfsdlfkjsf jsflsdjflsjf s\r\nsflsjfsljfsdflksjf lskdfjlsdjf slfj sdlfj slfj  \r\nsdflsf sljf sfsdflj s sfsdf sfsdf sfsdfl sf\r\nsdflj d sdf sdf dfldf df  fldfkjdf sls\r\n', '2024-07-04 16:34:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `bill_id` int(11) DEFAULT NULL,
+  `amount_paid` decimal(10,2) DEFAULT NULL,
+  `payment_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -239,9 +226,11 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`id`, `roomno`, `seater`, `feespm`, `foodstatus`, `stayfrom`, `duration`, `course`, `regno`, `firstName`, `middleName`, `lastName`, `gender`, `contactno`, `emailid`, `egycontactno`, `guardianName`, `guardianRelation`, `guardianContactno`, `corresAddress`, `corresCIty`, `corresState`, `corresPincode`, `pmntAddress`, `pmntCity`, `pmnatetState`, `pmntPincode`, `postingDate`, `updationDate`) VALUES
-(7, 100, 5, 8000, 1, '2016-06-17', 4, 'Bachelor of Engineering', 108061211, 'Test', 'test', 'kumar', 'male', 8467067344, 'test@gmail.com', 123456789, 'test', 'test', 1236547890, 'New Delhi India', 'Aligarh', 'Uttar Pradesh', 202001, 'New Delhi India', 'Delhi', 'Delhi (NCT)', 202001, '2016-06-23 11:54:35', ''),
-(8, 112, 3, 4000, 0, '2016-06-27', 5, 'Bachelor  of Science', 102355, 'rahul', 'kumar', 'Singh', 'male', 6786786786, 'rahul@gmail.com', 789632587, 'demo', 'demo', 1234567890, 'New Delhi', 'Delhi', 'Delhi (NCT)', 110001, 'New Delhi', 'Delhi', 'Delhi (NCT)', 110001, '2016-06-26 16:31:08', ''),
-(9, 132, 5, 2000, 1, '2016-06-28', 6, 'Bachelor of Engineering', 586952, 'Ajay', '', 'kumar', 'male', 8596185625, 'ajay@gmail.com', 8285703354, 'demo', 'demo', 8285703354, 'New Delhi India', 'Aligarh', 'Uttar Pradesh', 202001, 'New Delhi India', 'Delhi', 'Delhi (NCT)', 202001, '2016-06-26 16:40:07', '');
+(8, 132, 5, 2000, 0, '2024-07-23', 12, 'Master of Business Administration', 11111, 'biraj', '', 'das', 'male', 9864169831, 'birajdas27092002@gmail.com', 545645646, 'dgdfg', 'dgdfgdfg', 565675757, 'fghfhf', 'hfghfh', 'Jharkhand', 5757567, 'fghfhf', 'hfghfh', 'Jharkhand', 5757567, '2024-07-05 12:59:05', NULL),
+(9, 132, 5, 2000, 0, '2024-07-19', 6, 'Bachelor Of Computer Application', 666666, 'ssd', '', 'ffs', 'male', 555555555, 'd@gmail.com', 45656456, 'fgh', 'fgh', 6767676767, 'fgh', 'fgh', 'Jammu and Kashmir', 567567, 'fgh', 'fgh', 'Jammu and Kashmir', 567567, '2024-07-05 13:12:20', NULL),
+(10, 132, 5, 2000, 0, '2024-07-15', 7, 'Bachelor Of commerce ', 2222, 'a', 'a', 'a', 'female', 22, 'a@gmail.com', 55555555, 'fffff', 'ffff', 666666, 'fffff', 'ff', 'Haryana', 566656, 'fffff', 'ff', 'Haryana', 566656, '2024-07-05 13:15:58', NULL),
+(13, 112, 3, 4000, 0, '2024-07-06', 4, 'Bachelor  of Technology', 2323, 'w', 'w', 'w', 'female', 4444444444, 'w@gmail.com', 22222222, 'w', 'w', 222222222, 'w', 'w', 'Lakshadweep (UT)', 222222, 'w', 'w', 'Lakshadweep (UT)', 222222, '2024-07-05 14:20:07', NULL),
+(14, 132, 5, 2000, 0, '2024-07-24', 1, 'Bachelor  of Technology', 1212, 'q', 'q', 'q', 'male', 121212121212, 'q@gmail.com', 111111111, 'q', 'q', 111111111, 'q', 'q', 'Jharkhand', 1111111, 'q', 'q', 'Jharkhand', 1111111, '2024-07-05 14:21:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -262,11 +251,11 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `seater`, `room_no`, `fees`, `posting_date`) VALUES
-(1, 4, 100, 8000, '2016-04-11 22:45:43'),
-(2, 2, 201, 6000, '2016-04-12 01:30:47'),
-(3, 2, 200, 6000, '2016-04-12 01:30:58'),
-(4, 3, 112, 4000, '2016-04-12 01:31:07'),
-(5, 5, 132, 2000, '2016-04-12 01:31:15');
+(1, 5, 100, 8000, '2020-04-11 22:45:43'),
+(2, 2, 201, 6000, '2020-04-12 01:30:47'),
+(3, 2, 200, 6000, '2020-04-12 01:30:58'),
+(4, 3, 112, 4000, '2020-04-12 01:31:07'),
+(5, 5, 132, 2000, '2020-04-12 01:31:15');
 
 -- --------------------------------------------------------
 
@@ -286,9 +275,7 @@ CREATE TABLE `salaries` (
 --
 
 INSERT INTO `salaries` (`id`, `employee_id`, `bonus_salary`, `date_added`) VALUES
-(1, 1, 999.00, '2024-06-20 11:46:33'),
-(2, 2, 555.00, '2024-06-20 11:49:39'),
-(3, 3, 500.00, '2024-07-01 15:21:38');
+(4, 7, 44.00, '2024-07-04 16:36:08');
 
 -- --------------------------------------------------------
 
@@ -364,40 +351,75 @@ CREATE TABLE `userlog` (
 --
 
 INSERT INTO `userlog` (`id`, `userId`, `userEmail`, `userIp`, `city`, `country`, `loginTime`) VALUES
-(1, 10, 'test@gmail.com', '', '', '', '2016-06-22 06:16:42'),
-(2, 10, 'test@gmail.com', '', '', '', '2016-06-24 11:20:28'),
-(4, 10, 'test@gmail.com', 0x3a3a31, '', '', '2016-06-24 11:22:47'),
-(5, 10, 'test@gmail.com', 0x3a3a31, '', '', '2016-06-26 15:37:40'),
-(6, 20, 'ajay@gmail.com', 0x3a3a31, '', '', '2016-06-26 16:40:57'),
-(7, 10, 'test@gmail.com', 0x3a3a31, '', '', '2019-06-10 05:02:51'),
-(8, 10, 'test@gmail.com', 0x3a3a31, '', '', '2019-06-10 05:49:42'),
-(9, 10, 'test@gmail.com', 0x3a3a31, '', '', '2019-06-10 07:17:32'),
-(10, 10, 'test@gmail.com', 0x3a3a31, '', '', '2019-06-10 08:08:59'),
-(11, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 08:37:01'),
-(12, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 08:37:22'),
-(13, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 08:37:43'),
-(14, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 08:38:04'),
-(15, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 08:38:25'),
-(16, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 08:42:00'),
-(17, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-15 12:49:29'),
-(18, 21, 'aa@gmail.com', 0x3132372e302e302e31, '', '', '2024-06-15 14:35:16'),
-(19, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-16 13:56:40'),
-(20, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-16 13:57:01'),
-(21, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-16 14:42:24'),
-(22, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-19 11:25:50'),
-(23, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 12:05:03'),
-(24, 19, 'rahul@gmail.com', 0x3a3a31, '', '', '2024-06-19 12:06:49'),
-(25, 21, 'aa@gmail.com', 0x3a3a31, '', '', '2024-06-19 13:52:42'),
-(26, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-28 17:23:47'),
-(27, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 05:44:10'),
-(28, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 08:07:33'),
-(29, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 14:55:25'),
-(30, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-29 15:28:35'),
-(31, 19, 'rahul@gmail.com', 0x3a3a31, '', '', '2024-06-30 14:14:09'),
-(32, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-01 15:25:51'),
-(33, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-02 06:44:25'),
-(34, 10, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-02 07:36:11'),
-(35, 19, 'rahul@gmail.com', 0x3a3a31, '', '', '2024-07-02 08:19:08');
+(6, 2, '10806121', 0x3a3a31, '', '', '2020-07-20 14:56:45'),
+(7, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-18 20:03:55'),
+(8, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-18 20:30:57'),
+(9, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-18 20:40:11'),
+(10, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-18 20:59:43'),
+(11, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-18 21:01:37'),
+(12, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 15:16:24'),
+(13, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 15:25:50'),
+(14, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 18:19:40'),
+(15, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 18:21:30'),
+(16, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 18:58:11'),
+(17, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 19:43:07'),
+(18, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 19:44:28'),
+(19, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 20:29:21'),
+(20, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 20:30:35'),
+(21, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 20:44:04'),
+(22, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-19 20:46:57'),
+(23, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-20 19:25:34'),
+(24, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-21 15:01:11'),
+(25, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-21 15:26:16'),
+(26, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-21 20:27:31'),
+(27, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-21 21:18:45'),
+(28, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-21 22:00:38'),
+(29, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 16:53:08'),
+(30, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 19:11:20'),
+(31, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 19:38:04'),
+(32, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 19:46:49'),
+(33, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 19:50:09'),
+(34, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 20:12:09'),
+(35, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-22 20:24:45'),
+(36, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-23 14:02:46'),
+(37, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-23 14:08:41'),
+(38, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-23 15:19:17'),
+(39, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-23 18:57:05'),
+(40, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-23 19:01:38'),
+(41, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 14:13:49'),
+(42, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 14:33:56'),
+(43, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 14:44:04'),
+(44, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 14:48:58'),
+(45, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 14:56:28'),
+(46, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 15:00:46'),
+(47, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 15:12:12'),
+(48, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-25 16:03:12'),
+(49, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-26 14:06:49'),
+(50, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-26 14:13:21'),
+(51, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-26 14:13:48'),
+(52, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-26 14:58:42'),
+(53, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-26 15:22:03'),
+(54, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-06-26 15:22:32'),
+(55, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-04 16:19:08'),
+(56, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-04 16:31:47'),
+(57, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-04 17:52:06'),
+(58, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-04 17:56:27'),
+(59, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-04 19:10:57'),
+(60, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-05 05:24:14'),
+(61, 3, 'test@gmail.com', 0x3a3a31, '', '', '2024-07-05 12:04:57'),
+(62, 6, 'bd@gmail.com', 0x3a3a31, '', '', '2024-07-05 12:22:11'),
+(63, 4, 'gs123@gmail.com', 0x3a3a31, '', '', '2024-07-05 12:31:06'),
+(64, 7, 'birajdas27092002@gmail.com', 0x3a3a31, '', '', '2024-07-05 12:48:05'),
+(65, 8, 'birajdas27092002@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:06:37'),
+(66, 9, 'd@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:11:19'),
+(67, 10, 'a@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:15:20'),
+(68, 8, 'birajdas27092002@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:19:37'),
+(69, 9, 'd@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:20:52'),
+(70, 8, 'birajdas27092002@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:21:29'),
+(71, 12, 'w@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:25:46'),
+(72, 11, 'q@gmail.com', 0x3a3a31, '', '', '2024-07-05 13:27:11'),
+(73, 14, 'w@gmail.com', 0x3a3a31, '', '', '2024-07-05 14:19:03'),
+(74, 13, 'q@gmail.com', 0x3a3a31, '', '', '2024-07-05 14:21:02');
 
 -- --------------------------------------------------------
 
@@ -425,10 +447,11 @@ CREATE TABLE `userregistration` (
 --
 
 INSERT INTO `userregistration` (`id`, `regNo`, `firstName`, `middleName`, `lastName`, `gender`, `contactNo`, `email`, `password`, `regDate`, `updationDate`, `passUdateDate`) VALUES
-(10, '108061211', 'Test', 'test', 'kumar', 'male', 1234567890, 'test@gmail.com', 'Test@123', '2016-06-22 04:21:33', '10-06-2019 12:48:13', NULL),
-(19, '102355', 'rahul', 'kumar', 'Singh', 'male', 6786786786, 'rahul@gmail.com', '6786786786', '2016-06-26 16:33:36', '', ''),
-(20, '586952', 'Ajay', '', 'kumar', 'male', 8596185625, 'ajay@gmail.com', '8596185625', '2016-06-26 16:40:07', '', ''),
-(21, '1', 'AA', '', 'B', 'male', 9876543210, 'aa@gmail.com', '123', '2024-06-15 08:34:50', NULL, NULL);
+(8, '55555', 'biraj', '', 'das', 'male', 9864169831, 'birajdas27092002@gmail.com', '1q2w3e', '2024-07-05 13:06:25', NULL, NULL),
+(9, '666666', 'ssd', '', 'ffs', 'male', 555555555, 'd@gmail.com', '333', '2024-07-05 13:10:39', NULL, NULL),
+(10, '2222', 'a', 'a', 'a', 'female', 22, 'a@gmail.com', 'a', '2024-07-05 13:15:03', NULL, NULL),
+(13, '1212', 'q', 'q', 'q', 'male', 121212121212, 'q@gmail.com', 'q', '2024-07-05 14:18:01', NULL, NULL),
+(14, '2323', 'w', 'w', 'w', 'female', 4444444444, 'w@gmail.com', 'w', '2024-07-05 14:18:38', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -439,6 +462,13 @@ INSERT INTO `userregistration` (`id`, `regNo`, `firstName`, `middleName`, `lastN
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bills`
+--
+ALTER TABLE `bills`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `courses`
@@ -459,10 +489,18 @@ ALTER TABLE `notices`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `payments_bill_fk` (`bill_id`);
+
+--
 -- Indexes for table `registration`
 --
 ALTER TABLE `registration`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `regno` (`regno`);
 
 --
 -- Indexes for table `rooms`
@@ -508,6 +546,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `bills`
+--
+ALTER TABLE `bills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
+--
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
@@ -517,19 +561,25 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `notices`
 --
 ALTER TABLE `notices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `rooms`
@@ -541,7 +591,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `salaries`
 --
 ALTER TABLE `salaries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -553,17 +603,29 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `userregistration`
 --
 ALTER TABLE `userregistration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `bills`
+--
+ALTER TABLE `bills`
+  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `registration` (`id`);
+
+--
+-- Constraints for table `payments`
+--
+ALTER TABLE `payments`
+  ADD CONSTRAINT `payments_bill_fk` FOREIGN KEY (`bill_id`) REFERENCES `bills` (`id`);
 
 --
 -- Constraints for table `salaries`

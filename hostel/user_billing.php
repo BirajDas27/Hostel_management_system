@@ -5,19 +5,19 @@ include('includes/checklogin.php');
 check_login();
 
 $user_id = $_SESSION['id'];
-$order_by = 'paid_date DESC'; // Default sorting order
+$order_by = 'CASE WHEN status = "unpaid" THEN 1 ELSE 2 END, paid_date DESC'; // Default sorting order
 
 // Handle sorting
 if (isset($_POST['sort_option'])) {
     $sort_option = $_POST['sort_option'];
     if ($sort_option == 'recent') {
-        $order_by = 'paid_date DESC';
+        $order_by = 'CASE WHEN status = "unpaid" THEN 1 ELSE 2 END, paid_date DESC';
     } elseif ($sort_option == 'old') {
-        $order_by = 'paid_date ASC';
+        $order_by = 'CASE WHEN status = "unpaid" THEN 1 ELSE 2 END, paid_date ASC';
     } elseif ($sort_option == 'amount_asc') {
-        $order_by = 'amount ASC';
+        $order_by = 'CASE WHEN status = "unpaid" THEN 1 ELSE 2 END, amount ASC';
     } elseif ($sort_option == 'amount_desc') {
-        $order_by = 'amount DESC';
+        $order_by = 'CASE WHEN status = "unpaid" THEN 1 ELSE 2 END, amount DESC';
     }
 }
 
@@ -47,25 +47,26 @@ if (isset($_POST['pay_fee'])) {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="theme-color" content="#3e454c">
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="theme-color" content="#3e454c">
     <title>User Fees</title>
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-social.css">
-    <link rel="stylesheet" href="css/bootstrap-select.css">
-    <link rel="stylesheet" href="css/fileinput.min.css">
-    <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="css/fileinput.min.css">
+	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+	<link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bill.css">
 </head>
 
@@ -86,14 +87,16 @@ if (isset($_POST['pay_fee'])) {
 
                                 <!-- Sorting Dropdown -->
                                 <form method="post" class="mb-4">
-                                    <div class="form-group">
-                                        <label for="sort_option">Sort By:</label>
-                                        <select name="sort_option" class="form-control" onchange="this.form.submit()">
-                                            <option value="recent" <?php echo (isset($sort_option) && $sort_option == 'recent') ? 'selected' : ''; ?>>Recent Payments</option>
-                                            <option value="old" <?php echo (isset($sort_option) && $sort_option == 'old') ? 'selected' : ''; ?>>Old Payments</option>
-                                            <option value="amount_asc" <?php echo (isset($sort_option) && $sort_option == 'amount_asc') ? 'selected' : ''; ?>>Amount (Low to High)</option>
-                                            <option value="amount_desc" <?php echo (isset($sort_option) && $sort_option == 'amount_desc') ? 'selected' : ''; ?>>Amount (High to Low)</option>
-                                        </select>
+                                    <div class="other">
+                                        <div class="form-group">
+                                            <label for="sort_option">Sort By:</label>
+                                            <select name="sort_option" class="form-control" onchange="this.form.submit()">
+                                                <option value="recent" <?php echo (isset($sort_option) && $sort_option == 'recent') ? 'selected' : ''; ?>>Recent Payments</option>
+                                                <option value="old" <?php echo (isset($sort_option) && $sort_option == 'old') ? 'selected' : ''; ?>>Old Payments</option>
+                                                <option value="amount_asc" <?php echo (isset($sort_option) && $sort_option == 'amount_asc') ? 'selected' : ''; ?>>Amount (Low to High)</option>
+                                                <option value="amount_desc" <?php echo (isset($sort_option) && $sort_option == 'amount_desc') ? 'selected' : ''; ?>>Amount (High to Low)</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </form>
 
@@ -125,7 +128,7 @@ if (isset($_POST['pay_fee'])) {
                                                             <?php } elseif ($row['status'] == 'pending') { ?>
                                                                 <span class="badge badge-warning">Pending</span>
                                                             <?php } else { ?>
-                                                                <span class="badge badge-success">Paid</span>
+                                                                <span class="badge badge-success" style="font-size: 16px;border-radius: 3px;font-weight: bold">Paid</span>
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
@@ -144,16 +147,17 @@ if (isset($_POST['pay_fee'])) {
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="qrModalLabel">Scan to Pay</h5>
+                                                <h4 class="modal-title" id="qrModalLabel">Scan to Pay</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body text-center">
-                                                <img src="img/QR.png" class="qr-code" alt="QR Code">
-                                                <img src="img/telegram_UPI.png" class="additional-img" alt="Additional Image">
-                                                <p>Bill ID: <span id="billId"></span></p>
                                                 <p>Please scan the QR code to complete the payment.</p>
+                                                <img src="img/QR.png" class="qr-code" alt="QR Code" width="250px" height="250px"><br>
+                                                <img src="img/upi-logo.png" class="type" alt="upi logo" style="border: 0px;padding: 5px 10px" width="250px" height="50px">
+                                                <p style="font-weight: bold">Bill ID: <span id="billId"></span></p>
+
                                                 <form method="post">
                                                     <input type="hidden" name="bill_id" id="modalBillId">
                                                     <div class="form-group">
@@ -171,24 +175,14 @@ if (isset($_POST['pay_fee'])) {
                                                     <button type="submit" name="pay_fee" class="btn btn-success">Submit</button>
                                                 </form>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
-
-
-
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
