@@ -69,7 +69,7 @@ if (isset($_POST['present'])) {
                         <h2 class="page-title">Mark Attendance</h2>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color:#325d88;color:white">Attendance Form</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Attendance Form</div>
                             <div class="panel-body">
                                 <form method="post" class="form-horizontal">
                                     <div class="form-group">

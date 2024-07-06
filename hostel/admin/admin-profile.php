@@ -105,7 +105,7 @@ $aid=$_SESSION['id'];
 						<div class="row">
 							<div class="col-md-6">
 								<div class="panel panel-default">
-									<div class="panel-heading" style="background-color: #325d88;color:white">Admin profile details</div>
+									<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Admin profile details</div>
 									<div class="panel-body">
 										<p>Username cannot be changed.</p>
 										<form method="post" class="form-horizontal">
@@ -145,7 +145,7 @@ $aid=$_SESSION['id'];
 									<?php }  ?>
 								<div class="col-md-6" >
 								<div class="panel panel-default">
-									<div class="panel-heading" style="background-color: #325d88;color:white">Change Password</div>
+									<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Change Password</div>
 									<div class="panel-body">
 										<form method="post" class="form-horizontal" name="changepwd" id="change-pwd" onSubmit="return valid();">
 

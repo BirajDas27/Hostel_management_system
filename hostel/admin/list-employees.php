@@ -138,7 +138,7 @@ $result = $mysqli->query($sql);
                         ?>
                         <div class="edit-form show-form">
                             <div class="panel panel-default">
-                                <div class="panel-heading" style="background:#325d88;color: white">Update employee information</div>
+                                <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Update employee information</div>
                                 <div class="panel-body">
                                     <form class="form-horizontal" action="list-employees.php" method="post" onsubmit="return confirm('Do you want to update the employee details? (Y/N)');">
                                         <input type="hidden" name="employee_id" value="<?php echo $row_edit['id']; ?>">
@@ -233,7 +233,7 @@ $result = $mysqli->query($sql);
                         ?>
                         <div class="employee-list show-form">
                             <table id="employeeTable">
-                                <thead>
+                                <thead style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">
                                     <tr>
                                         <th onclick="sortTable(0)">ID</th>
                                         <th>Photo</th>

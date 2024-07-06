@@ -137,7 +137,13 @@ body {
     margin-left: 71%;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 426px) {
+.ref{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 728px) {
     .form-group{
         display:flex;
         justify-content: center;
@@ -170,6 +176,9 @@ body {
     
     .col-sm-offset-9 {
         margin-left: 70%;
+    }
+    .col-sm-offset-8{
+        margin-left: 50%;
     }
 
     .control-label{

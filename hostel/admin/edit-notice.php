@@ -58,7 +58,7 @@ check_login();
                                 $row = $result->fetch_assoc();
                                 ?>
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color: #325d88;color: white">Update notice</div>
+                                    <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Update notice</div>
                                     <div class="panel-body">
                                         <form action="edit-notice.php" method="post">
                                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">

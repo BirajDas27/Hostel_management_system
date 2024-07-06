@@ -39,7 +39,7 @@ check_login();
                     <div class="col-md-12">
                         <h2 class="page-title" style="margin-top:4%">Add Notice</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading"  style="background-color: #325d88;color: white">create notice</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">create notice</div>
                             <div class="panel-body">
                                 <form action="add-notice.php" method="post">
                                     <div class="form-group">

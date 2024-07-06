@@ -66,7 +66,7 @@ $stmt=$mysqli->prepare("SELECT username,email,password,id FROM admin WHERE (user
                   <input type="password" placeholder="Password" name="password" class="form-control mb">
                   
 
-                  <input type="submit" name="login" class="btn btn-primary btn-block" value="login" >
+                  <input type="submit" name="login" class="btn btn-primary btn-block" value="LOGIN" >
                 </form>
                 <a href="../index.php">Student?</a>
               </div>

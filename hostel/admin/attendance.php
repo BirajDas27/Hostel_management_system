@@ -98,7 +98,7 @@ if ($selected_date > $current_date) {
 
                         <!-- Attendance Table -->
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #325d88;color:white">Attendance Details</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Attendance Details</div>
                             <div class="panel-body">
                                 <?php if ($selected_date > $current_date): ?>
                                     <p>No attendance records available for future dates.</p>

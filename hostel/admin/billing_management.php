@@ -71,7 +71,7 @@ if (isset($_POST['generate_payments'])) {
                     <div class="col-md-12">
                         <h2 class="page-title">Fee Management</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color:#325D88;color: white">Payment related</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Payment related</div>
                             <div class="panel-body">
 
                                 <!-- Generate Payments Button -->

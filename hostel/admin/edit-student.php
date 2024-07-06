@@ -60,7 +60,7 @@ $query = "SELECT * FROM registration WHERE id=?";
                     <div class="col-md-12">
                         <h2 class="page-title">Edit Student Profile</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #325d88;color: white">Student Details</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Student Details</div>
                             <div class="panel-body">
                                 <form method="post" class="form-horizontal">
                                     <div class="form-group">

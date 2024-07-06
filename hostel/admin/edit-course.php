@@ -55,7 +55,7 @@ echo"<script>alert('Course has been Updated successfully');</script>";
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading" style="background-color: #325d88;color: white">update course</div>
+									<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">update course</div>
 									<div class="panel-body">
 										<form method="post" class="form-horizontal">
 											<?php	

@@ -71,7 +71,7 @@ $result = $stmt->get_result();
                             <div class="content">
                                 <div class="table-wrapper">
                                     <table class="table">
-                                        <thead>
+                                        <thead  style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Status</th>

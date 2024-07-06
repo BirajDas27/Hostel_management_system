@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
                         <div class="content">
                             <div class="search">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color: #325d88;color:white">search the employee</div>
+                                    <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">search the employee</div>
                                     <div class="panel-body">
                                         <form action="add-bonus.php" method="post">
                                         <div class="form-group">
@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
                             
                             <div class="bonus">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" style="background-color: #325d88;color: white">add bonus</div>
+                                    <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">add bonus</div>
                                     <div class="panel-body">
                                         <form action="add-bonus.php" method="post" onsubmit="return confirmSalaryAddition();">
                                             <div class="form-group">

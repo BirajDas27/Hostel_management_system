@@ -48,7 +48,7 @@ if(isset($_GET['del']))
 					<div class="col-md-12">
 						<h2 class="page-title" style="margin-top:4%">Manage Courses</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading" style="background:#325d88;color: white">All Courses Details</div>
+							<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">All Courses Details</div>
 							<div class="panel-body">
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>

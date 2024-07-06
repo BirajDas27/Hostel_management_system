@@ -86,7 +86,7 @@ return true;
 	
 								<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading" style="background-color:#325D88;color:white">
+									<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">
 										<?php $result ="SELECT passUdateDate FROM userregistration WHERE id=?";
 										$stmt = $mysqli->prepare($result);
 										$stmt->bind_param('i',$ai);

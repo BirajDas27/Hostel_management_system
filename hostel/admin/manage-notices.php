@@ -37,7 +37,7 @@ check_login();
 					<div class="col-md-12">
 						<h2 class="page-title" style="margin-top:4%">Manage Notices</h2>
 						<div class="panel panel-default">
-							<div class="panel-heading" style="background:#325d88;color: white">Notice Details</div>
+							<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Notice Details</div>
 							<div class="panel-body">
 								<table width="90%">
                                     <thead>

@@ -78,7 +78,7 @@ if (!$result) {
                         <h2 class="page-title" style="margin-top:4%">Employee salary records</h2>
                         <div class="box">
                             <table>
-                                <thead>
+                                <thead style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">
                                     <tr>
                                         <th>ID</th>
                                         <th>Employee Name</th>

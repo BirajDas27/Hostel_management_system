@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
-	<title>Student Hostel Registration</title>
+	<title>user login</title>
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
@@ -52,8 +52,7 @@ if (isset($_POST['login'])) {
 	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/head-side.css">
+	<link rel="stylesheet" href="css/index.css">
 	<script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 	<script type="text/javascript" src="js/validation.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -70,7 +69,7 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-	<div class="ts-main-content">
+	<div class="ts-main-content" style="background-image: url('img/login-bg.png')">
 
 		<div class="content-wrapper">
 			<div class="container-fluid">
@@ -94,9 +93,11 @@ if (isset($_POST['login'])) {
 
 											<input type="submit" name="login" class="btn btn-primary btn-block" value="login">
 										</form>
-										<a href="./admin/index.php">Admin</a>
-										<a href="./registration.php">Don't have an account?</a>
-										<a href="forgot-password.php">Forgot password?</a>
+										<div class="refs">
+											<a href="./admin/index.php" style="color: #37A6C4">Admin</a>
+											<a href="./registration.php" style="color: #37a6c4">Don't have an account?</a>
+											<a href="forgot-password.php" style="color: #37a6c4">Forgot password?</a>
+										</div>
 									</div>
 								</div>
 

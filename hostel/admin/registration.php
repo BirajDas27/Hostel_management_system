@@ -109,7 +109,7 @@ $('#fpm').val(data);
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-primary">
-									<div class="panel-heading">Fill all Information</div>
+									<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Fill all Information</div>
 									<div class="panel-body">
 										<form method="post" action="" class="form-horizontal">
 											

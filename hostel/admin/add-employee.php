@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                     <div class="col-md-12">
                         <h2 class="page-title" style="margin-top:4%">Add Employee</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #325d88;color: white">fill all information</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">fill all information</div>
                             <div class="panel-body">
                                 <form action="add-employee.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <div class="form-group">

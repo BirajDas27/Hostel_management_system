@@ -58,7 +58,7 @@ check_login();
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<div class='notice'>";
-                                        echo "<div class='notice-header'>";
+                                        echo "<div class='notice-header'  style='background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white'>";
                                             echo "<div class='title'>";
                                                 echo "<span class='title-slide'>";
                                                     echo $row['title'];
