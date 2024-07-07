@@ -56,8 +56,14 @@ input{
     .well{
         transform: translateX(0px) translateY(0px);
         max-width: 355px;
-
+        transform: scaleX(0.6)
     
+    }
+    form{
+        transform: scaleX(1.4)
+    }
+    .refs{
+        transform: scaleX(1.4)
     }
     .col-md-8{
         max-width: 355px;
@@ -82,10 +88,16 @@ input{
         justify-content: center;
     }
     .well{
-        transform: translateX(0px);
+        transform: translateX(0px) translateY(0px);
         max-width: 355px;
-
+        transform: scaleX(0.7)
     
+    }
+    form{
+        transform: scaleX(1.6)
+    }
+    .refs{
+        transform: scaleX(1.6)
     }
     .col-md-8{
         max-width: 355px;

@@ -80,7 +80,7 @@ if (isset($_POST['login'])) {
 						<h2 class="page-title">User Login </h2>
 
 						<div class="row">
-							<div class="col-md-6 col-md-offset-3">
+							<div class="col-md-4 col-md-offset-3">
 								<div class="well row pt-2x pb-3x bk-light">
 									<div class="col-md-8 col-md-offset-2">
 
