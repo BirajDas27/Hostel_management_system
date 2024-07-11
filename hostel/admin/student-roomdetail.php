@@ -7,13 +7,21 @@ check_login();
 if (isset($_GET['del'])) {
 	$id = intval($_GET['del']);
 
-	$adn = "DELETE FROM userregistration WHERE id=?";
+	// First, delete related entries in the bills table
+	$deleteBills = "DELETE FROM bills WHERE user_id=?";
+	$stmt = $mysqli->prepare($deleteBills);
+	$stmt->bind_param('i', $id);
+	$stmt->execute();
+	$stmt->close();
+
+	// Then, delete the user from the registration table
+	$adn = "DELETE FROM registration WHERE id=?";
 	$stmt = $mysqli->prepare($adn);
 	$stmt->bind_param('i', $id);
 	$stmt->execute();
 	$stmt->close();
 
-	echo "<script>alert('Data Deleted');</script>";
+	echo "<script>alert('Student released from room');</script>";
 }
 
 ?>
@@ -56,7 +64,7 @@ if (isset($_GET['del'])) {
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="page-title" style="margin-top:4%">Student Accounts</h2>
+						<h2 class="page-title" style="margin-top:4%">Room Allotted</h2>
 						<div class="panel panel-default">
 							<div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Student Details</div>
 							<div class="panel-body">
@@ -66,10 +74,11 @@ if (isset($_GET['del'])) {
 											<th>Sno.</th>
 											<th>Student Name</th>
 											<th>Gender </th>
+											<th>Reg no</th>
 											<th>Contact No </th>
-											<th>Email </th>
-											<th>Course </th>
-											<th>Reg. Date </th>
+											<th>room no </th>
+											<th>Seater </th>
+											<th>Staying From </th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -78,17 +87,18 @@ if (isset($_GET['del'])) {
 											<th>Sno.</th>
 											<th>Student Name</th>
 											<th>Gender </th>
+											<th>Reg no</th>
 											<th>Contact no </th>
-											<th>Email </th>
-											<th>Course </th>
-											<th>Reg. Date </th>
+											<th>Room no </th>
+											<th>Seater </th>
+											<th>Staying From </th>
 											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
 										<?php
 										$aid = $_SESSION['id'];
-										$ret = "SELECT * FROM userregistration";
+										$ret = "SELECT * FROM registration";
 										$stmt = $mysqli->prepare($ret);
 										$stmt->execute();
 										$res = $stmt->get_result();
@@ -99,14 +109,15 @@ if (isset($_GET['del'])) {
 												<td><?php echo $cnt; ?></td>
 												<td><?php echo $row->firstName . ' ' . $row->middleName . ' ' . $row->lastName; ?></td>
 												<td><?php echo $row->gender; ?></td>
+                                                <td><?php echo $row->regno; ?></td>
 												<td><?php echo $row->contactNo; ?></td>
-												<td><?php echo $row->email; ?></td>
-												<td><?php echo $row->course; ?></td>
-												<td><?php echo $row->regDate; ?></td>
+												<td><?php echo $row->roomno; ?></td>
+												<td><?php echo $row->seater; ?></td>
+												<td><?php echo $row->stayfrom; ?></td>
 												<td style="display:flex;justify-content:center">
-													<a href="edit-userRegistration.php?email=<?php echo $row->email; ?>" title="Edit Student"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-													<a href="registration.php?email=<?php echo $row->email; ?>" title="Book Room"><i class="fa fa-bed"></i></a>&nbsp;&nbsp;
-													<a href="manage-students.php?del=<?php echo $row->id; ?>" title="Delete Record" onclick="return confirm('Do you want to delete?');"><i class="fa fa-close"></i></a>
+													<a href="javascript:void(0);" onClick="popUpWindow('full-profile.php?id=<?php echo $row->id; ?>', 100, 100, 600, 400);" title="View Full Details"><i class="fa fa-desktop"></i></a>&nbsp;&nbsp;
+													<a href="edit-student.php?id=<?php echo $row->id; ?>" title="Edit Room"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+													<a href="student-roomdetail.php?del=<?php echo $row->id; ?>" title="Release student from room" onclick="return confirm('Do you want to release the student from room?');"><i class="fa fa-close"></i></a>
 												</td>
 											</tr>
 										<?php

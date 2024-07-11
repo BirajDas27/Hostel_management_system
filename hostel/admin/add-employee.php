@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     if ($_FILES['photo']['error'] === 0) {
         $photo_name = $_FILES['photo']['name'];
         $photo_tmp = $_FILES['photo']['tmp_name'];
+        
         $photo_path = 'uploads/' . $photo_name;
 
         if (move_uploaded_file($photo_tmp, $photo_path)) {
@@ -30,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             echo "Error moving file";
             error_log("Error moving uploaded file: " . $photo_name, 0);
         }
+        
     } else {
         echo "File upload error: " . $_FILES['photo']['error'];
         error_log("File upload error: " . $_FILES['photo']['error'], 0);
@@ -44,6 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     } else {
         echo "Error: " . $sql . "<br>" . $mysqli->error;
     }
+    echo "<script>alert('Employee added successfully!');</script>";
+    echo "<script>window.location.href='list-employees.php';</script>";
 }
 ?>
 

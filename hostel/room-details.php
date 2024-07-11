@@ -56,7 +56,7 @@ check_login();
 									<tbody>
 										<?php
 										$aid = $_SESSION['login'];
-										$ret = "select * from registration where emailid=?";
+										$ret = "select * from registration where email=?";
 										$stmt = $mysqli->prepare($ret);
 										$stmt->bind_param('s', $aid);
 										$stmt->execute();
@@ -122,13 +122,13 @@ check_login();
 												<td><b>Full Name :</b></td>
 												<td><?php echo $row->firstName; ?><?php echo $row->middleName; ?><?php echo $row->lastName; ?></td>
 												<td><b>Email :</b></td>
-												<td><?php echo $row->emailid; ?></td>
+												<td><?php echo $row->email; ?></td>
 											</tr>
 
 
 											<tr>
 												<td><b>Contact No. :</b></td>
-												<td><?php echo $row->contactno; ?></td>
+												<td><?php echo $row->contactNo; ?></td>
 												<td><b>Gender :</b></td>
 												<td><?php echo $row->gender; ?></td>
 												<td><b>Course :</b></td>

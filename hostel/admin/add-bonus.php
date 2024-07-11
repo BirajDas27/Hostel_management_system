@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $sql = "INSERT INTO salaries (employee_id, bonus_salary) VALUES ('$employee_id', '$bonus_salary')";
 
     if ($mysqli->query($sql) === TRUE) {
-        echo "Salary added successfully";
+        echo "<script>alert('Salary added successfully')</script>";
+        echo "<script>window.location.href='view-salaries.php'</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $mysqli->error;
     }

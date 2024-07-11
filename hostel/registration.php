@@ -2,7 +2,6 @@
 session_start();
 include('includes/config.php');
 if (isset($_POST['submit'])) {
-	$regno = $_POST['regno'];
 	$fname = $_POST['fname'];
 	$mname = $_POST['mname'];
 	$lname = $_POST['lname'];
@@ -10,9 +9,10 @@ if (isset($_POST['submit'])) {
 	$contactno = $_POST['contact'];
 	$emailid = $_POST['email'];
 	$password = $_POST['password'];
-	$query = "insert into  userRegistration(regNo,firstName,middleName,lastName,gender,contactNo,email,password) values(?,?,?,?,?,?,?,?)";
+	$course = $_POST['course'];
+	$query = "insert into  userRegistration(firstName,middleName,lastName,gender,contactNo,email,password,course) values(?,?,?,?,?,?,?,?)";
 	$stmt = $mysqli->prepare($query);
-	$rc = $stmt->bind_param('sssssiss', $regno, $fname, $mname, $lname, $gender, $contactno, $emailid, $password);
+	$rc = $stmt->bind_param('ssssisss', $fname, $mname, $lname, $gender, $contactno, $emailid, $password, $course);
 	$stmt->execute();
 	echo "<script>alert('Student Succssfully register');</script>";
 }
@@ -71,14 +71,9 @@ if (isset($_POST['submit'])) {
 
 
 										<div class="ref">
-											<a href="./index.php">Already have an account?</a>
+											<a href="./index.php">Login?</a>
 										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label"> Registration No:</label>
-											<div class="col-sm-8">
-												<input type="text" name="regno" id="regno" class="form-control" required="required">
-											</div>
-										</div>
+
 
 
 										<div class="form-group">
@@ -145,13 +140,36 @@ if (isset($_POST['submit'])) {
 											</div>
 										</div>
 
-
-
-
-										<div class="col-sm-6 col-sm-offset-8">
-											<button class="btn btn-default" type="submit">Clear form</button>
-											<button type="submit" name="submit" class="btn btn-primary">Register</button>
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Course:</label>
+											<div class="col-sm-8">
+												<select name="course" id="course" class="form-control" required>
+													<option value="">Select course</option>
+													<?php $query = "SELECT * FROM courses";
+													$stmt2 = $mysqli->prepare($query);
+													$stmt2->execute();
+													$res = $stmt2->get_result();
+													while ($row = $res->fetch_object()) {
+													?>
+														<option value="<?php echo $row->course_fn; ?>"><?php echo $row->course_fn; ?>&nbsp;&nbsp;(<?php echo $row->course_sn; ?>)</option>
+													<?php } ?>
+												</select>
+											</div>
 										</div>
+
+										<div class="form-group">
+											<label class="col-sm-3 control-label"></label>
+											<div class="col-sm-8">
+												<button type="submit" name="submit" class="btn btn-primary" style="background-color:#0010ce;color: white;font-size: 16px;font-weight: bold;">Register</button>
+											</div>
+										</div>
+
+
+										<div class="col-sm-8">
+
+
+										</div>
+
 									</form>
 
 								</div>

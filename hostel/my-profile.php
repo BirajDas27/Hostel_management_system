@@ -15,9 +15,14 @@ $lname=$_POST['lname'];
 $gender=$_POST['gender'];
 $contactno=$_POST['contact'];
 $udate = date('d-m-Y h:i:s', time());
-$query="update  userRegistration set regNo=?,firstName=?,middleName=?,lastName=?,gender=?,contactNo=?,updationDate=? where id=?";
+$query="update  userRegistration set firstName=?,middleName=?,lastName=?,gender=?,contactNo=?,updationDate=? where id=?";
 $stmt = $mysqli->prepare($query);
-$rc=$stmt->bind_param('sssssisi',$regno,$fname,$mname,$lname,$gender,$contactno,$udate,$aid);
+$rc=$stmt->bind_param('ssssisi',$fname,$mname,$lname,$gender,$contactno,$udate,$aid);
+$stmt->execute();
+
+$query1="update  registration set regNo=?,firstName=?,middleName=?,lastName=?,gender=?,contactNo=?,updationDate=? where id=?";
+$stmt = $mysqli->prepare($query1);
+$rc=$stmt->bind_param('ssssisi',$fname,$mname,$lname,$gender,$contactno,$udate,$aid);
 $stmt->execute();
 echo"<script>alert('Profile updated Succssfully');</script>";
 }
@@ -97,7 +102,7 @@ return true;
 											<div class="form-group">
 												<label class="col-sm-2 control-label"> Registration No : </label>
 												<div class="col-sm-8">
-													<input type="text" name="regno" id="regno"  class="form-control" required="required" value="<?php echo $row->regNo;?>" >
+													<input type="text" name="regno" id="regno"  class="form-control" required="required" value="<?php echo $row->regno;?>" >
 												</div>
 											</div>
 

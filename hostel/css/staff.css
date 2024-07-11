@@ -1,0 +1,17 @@
+@media only screen and (min-width: 320px) and (max-width: 728px) {
+    .col-sm-12{
+        overflow: auto;
+    }
+    .col-sm-12::-webkit-scrollbar {
+        width: 8px;
+    }
+      
+    .col-sm-12::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+      
+    .col-sm-12::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}

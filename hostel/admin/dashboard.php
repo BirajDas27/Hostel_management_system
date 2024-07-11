@@ -1,7 +1,7 @@
 <?php
 session_start();
-include ('includes/config.php');
-include ('includes/checklogin.php');
+include('includes/config.php');
+include('includes/checklogin.php');
 check_login();
 ?>
 <!doctype html>
@@ -28,10 +28,10 @@ check_login();
 </head>
 
 <body>
-    <?php include ("includes/header.php"); ?>
+    <?php include("includes/header.php"); ?>
 
     <div class="ts-main-content">
-        <?php include ("includes/sidebar.php"); ?>
+        <?php include("includes/sidebar.php"); ?>
         <div class="content-wrapper">
             <div class="container-fluid">
 
@@ -46,7 +46,7 @@ check_login();
                                         <div class="stat-panel text-center">
                                             <?php
                                             // Query to get total students
-                                            $result = $mysqli->query("SELECT count(*) FROM registration");
+                                            $result = $mysqli->query("SELECT count(*) FROM userregistration");
                                             $count = $result->fetch_row()[0];
                                             ?>
                                             <div class="stat-panel-number h1 "><?php echo $count; ?></div>
@@ -54,6 +54,23 @@ check_login();
                                         </div>
                                     </div>
                                     <a href="manage-students.php" class="block-anchor panel-footer text-center">Full Detail
+                                        <i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-body bk-danger text-light">
+                                        <div class="stat-panel text-center">
+                                            <?php
+                                            // Query to get total students allotted to rooms
+                                            $result = $mysqli->query("SELECT count(*) FROM registration");
+                                            $count = $result->fetch_row()[0];
+                                            ?>
+                                            <div class="stat-panel-number h1 "><?php echo $count; ?></div>
+                                            <div class="stat-panel-title text-uppercase">Students Registered</div>
+                                        </div>
+                                    </div>
+                                    <a href="student-roomdetail.php" class="block-anchor panel-footer text-center">Full Detail
                                         <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -76,7 +93,7 @@ check_login();
                             </div>
                             <div class="col-md-3">
                                 <div class="panel panel-default">
-                                    <div class="panel-body bk-info text-light">
+                                    <div class="panel-body bk-brand text-light">
                                         <div class="stat-panel text-center">
                                             <?php
                                             // Query to get total courses
@@ -89,6 +106,38 @@ check_login();
                                     </div>
                                     <a href="manage-courses.php" class="block-anchor panel-footer text-center">See All &nbsp;
                                         <i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Latest Notices</div>
+                                    <div class="panel-body-notice">
+                                        <ul class="list-group">
+                                            <?php
+                                            $noticeQuery = "SELECT title, content, created_at FROM notices ORDER BY created_at DESC LIMIT 5";
+                                            $noticeResult = $mysqli->query($noticeQuery);
+
+                                            if ($noticeResult->num_rows > 0) {
+                                                while ($notice = $noticeResult->fetch_assoc()) {
+                                                    echo '<li class="list-group-item">';
+                                                    echo '<h5 class="list-group-item-heading">';
+                                                    echo '<div class="sub">';
+                                                    echo '<div class="sub-slide">';
+                                                    echo $notice['title'];
+                                                    echo '</div>';
+                                                    echo '</div>';
+                                                    echo '<small>' . $notice['created_at'] . '</small>';
+                                                    echo '</h5>';
+                                                    echo '</li>';
+                                                }
+                                            } else {
+                                                echo '<li class="list-group-item">No notice added.</li>';
+                                            }
+                                            ?>
+                                        </ul>
+                                    </div>
+                                    <a href="manage-notices.php" class="block-anchor panel-footer">Manage Notices <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -109,40 +158,9 @@ check_login();
                                         <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">Latest Notices</div>
-                                            <div class="panel-body-notice">
-                                                <ul class="list-group">
-                                                    <?php
-                                                    $noticeQuery = "SELECT title, content, created_at FROM notices ORDER BY created_at DESC LIMIT 5";
-                                                    $noticeResult = $mysqli->query($noticeQuery);
-
-                                                    if ($noticeResult->num_rows > 0) {
-                                                        while ($notice = $noticeResult->fetch_assoc()) {
-                                                            echo '<li class="list-group-item">';
-                                                                echo '<h5 class="list-group-item-heading">';
-                                                                    echo '<div class="sub">';
-                                                                        echo '<div class="sub-slide">';
-                                                                            echo $notice['title'];
-                                                                        echo '</div>';
-                                                                    echo '</div>';
-                                                                    echo '<small>' . $notice['created_at'] . '</small>';
-                                                                echo '</h5>';
-                                                            echo '</li>';
-                                                        }
-                                                    } else {
-                                                        echo '<li class="list-group-item">No notice added.</li>';
-                                                    }
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                            <a href="manage-notices.php" class="block-anchor panel-footer">Manage Notices <i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
                         </div>
 
-                        
+
 
                     </div>
                 </div>

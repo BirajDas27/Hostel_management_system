@@ -15,6 +15,7 @@ $stmt = $mysqli->prepare($query);
 $rc=$stmt->bind_param('sssi',$coursecode,$coursesn,$coursefn,$id);
 $stmt->execute();
 echo"<script>alert('Course has been Updated successfully');</script>";
+echo "<script>window.location.href='manage-courses.php';</script>";
 }
 
 ?>

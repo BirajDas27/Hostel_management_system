@@ -88,7 +88,8 @@ check_login();
                             $sql = "UPDATE notices SET title='$title', content='$content' WHERE id=$id";
                         
                             if ($mysqli->query($sql) === TRUE) {
-                                echo "Notice updated successfully";
+                                echo "<script>alert('Notice have been updated successfully')</script>";
+                                echo "<script>window.location.href='manage-notices.php'</script>";
                             } else {
                                 echo "Error: " . $sql . "<br>" . $mysqli->error;
                             }

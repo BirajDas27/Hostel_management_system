@@ -45,7 +45,7 @@ window.print();
   </tr>
 			
 			<tr>
-			  <td colspan="2"  class="font"><?php echo ucfirst($row['firstName']);?> <?php echo ucfirst($row['lastName']);?>'S <span class="font1"> information &raquo;</span> </td>
+			  <td colspan="2"  class="font"><?php echo ucfirst($row['firstName']);?> <?php echo ucfirst($row['lastName']);?>'s <span class="font1"> information &raquo;</span> </td>
   </tr>
 			<tr>
 			  <td colspan="2"  class="font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -140,12 +140,12 @@ else
 
 <tr>
 <td width="12%" valign="top" class="heading">Contact No: </td>
-<td class="comb-value1"><?php echo $row['contactno'];?></td>
+<td class="comb-value1"><?php echo $row['contactNo'];?></td>
 </tr>
 
 <tr>
 <td width="12%" valign="top" class="heading">Email id: </td>
-<td class="comb-value1"><?php echo $row['emailid'];?></td>
+<td class="comb-value1"><?php echo $row['email'];?></td>
 </tr>
 
 <tr>

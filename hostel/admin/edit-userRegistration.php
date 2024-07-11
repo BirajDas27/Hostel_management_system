@@ -5,28 +5,44 @@ include('includes/checklogin.php');
 check_login();
 
 if (isset($_POST['update'])) {
-    $id = intval($_GET['id']);
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
     $lastName = $_POST['lastName'];
     $contactNo = $_POST['contactno'];
-    $roomno = $_POST['roomno'];
-    $seater = $_POST['seater'];
-    $stayfrom = $_POST['stayfrom'];
+    $email = $_POST['email'];
     $course = $_POST['course'];
 
-    $query = "UPDATE registration SET firstName=?, middleName=?, lastName=?, contactno=?, roomno=?, seater=?, stayfrom=?, course=? WHERE id=?";
-    $stmt = $mysqli->prepare($query);
-    $stmt->bind_param('ssssssssi', $firstName, $middleName, $lastName, $contactNo, $roomno, $seater, $stayfrom, $course, $id);
-    $stmt->execute();
-    echo "<script>alert('Student room updated successfully');</script>";
-    echo "<script>window.location.href='student-roomdetails.php';</script>";
+    $originalEmail = $_GET['email']; // Get the original email from the GET parameter
+
+    $query = "UPDATE userregistration SET firstName=?, middleName=?, lastName=?, contactno=?, email=?, course=? WHERE email=?";
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->bind_param('sssisss', $firstName, $middleName, $lastName, $contactNo, $email, $course, $originalEmail);
+        if (!$stmt->execute()) {
+            echo "Error updating userregistration: " . $stmt->error;
+        }
+        $stmt->close();
+    } else {
+        echo "Error preparing statement for userregistration: " . $mysqli->error;
+    }
+
+    $query1 = "UPDATE registration SET firstName=?, middleName=?, lastName=?, contactno=?, email=?, course=? WHERE email=?";
+    if ($stmt = $mysqli->prepare($query1)) {
+        $stmt->bind_param('sssisss', $firstName, $middleName, $lastName, $contactNo, $email, $course, $originalEmail);
+        if (!$stmt->execute()) {
+            echo "Error updating registration: " . $stmt->error;
+        }
+        $stmt->close();
+    } else {
+        echo "Error preparing statement for registration: " . $mysqli->error;
+    }
+    echo "<script>alert('Student details updated successfully');</script>";
+    echo "<script>window.location.href='manage-students.php';</script>";
 }
 
-$id = intval($_GET['id']);
-$query = "SELECT * FROM registration WHERE id=?";
+$email = isset($_GET['email']) ? $_GET['email'] : '';
+$query = "SELECT * FROM userregistration WHERE email=?";
 $stmt = $mysqli->prepare($query);
-$stmt->bind_param('i', $id);
+$stmt->bind_param('s', $email);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_object();
@@ -62,67 +78,48 @@ $row = $result->fetch_object();
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="page-title">Edit Student Room</h2>
+                        <h2 class="page-title">Edit Student Profile</h2>
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Student Room Details</div>
+                            <div class="panel-heading" style="background-color: rgb(87, 0, 87);border-color: rgb(87, 0, 87);color: white">Student Details</div>
                             <div class="panel-body">
                                 <form method="post" class="form-horizontal">
                                     <div class="form-group">
                                         <label for="firstName">First Name:</label>
-
-                                        <input type="text" class="form-control" name="firstName" value="<?php echo htmlspecialchars($row->firstName); ?>" required readonly>
-
+                                        <input type="text" class="form-control" name="firstName" value="<?php echo htmlspecialchars($row->firstName); ?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="middleName">Middle Name:</label>
-
-                                        <input type="text" class="form-control" name="middleName" value="<?php echo htmlspecialchars($row->middleName); ?>" readonly>
-
+                                        <input type="text" class="form-control" name="middleName" value="<?php echo htmlspecialchars($row->middleName); ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="lastName">Last Name:</label>
-
-                                        <input type="text" class="form-control" name="lastName" value="<?php echo htmlspecialchars($row->lastName); ?>" required readonly>
-
+                                        <input type="text" class="form-control" name="lastName" value="<?php echo htmlspecialchars($row->lastName); ?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="contactno">Contact Number:</label>
-
-                                        <input type="text" class="form-control" name="contactno" value="<?php echo htmlspecialchars($row->contactNo); ?>" required readonly>
-
+                                        <input type="text" class="form-control" name="contactno" value="<?php echo htmlspecialchars($row->contactNo); ?>" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="roomno">Room Number:</label>
-
-                                        <input type="text" class="form-control" name="roomno" value="<?php echo htmlspecialchars($row->roomno); ?>" required>
-
+                                        <label for="email">Email:</label>
+                                        <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row->email); ?>" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="seater">Seater:</label>
-
-                                        <input type="text" class="form-control" name="seater" value="<?php echo htmlspecialchars($row->seater); ?>" required>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="course">Course:</label>
-
-                                        <select name="course" id="course" class="form-control" required readonly>
+                                        <label for="seater">Course:</label>
+                                        <select name="course" id="course" class="form-control" required>
                                             <?php
                                             $selected_course = htmlspecialchars($row->course);
                                             echo "<option value='$selected_course'>$selected_course</option>";
-                                            
+                                            $query = "SELECT * FROM courses";
+                                            $stmt2 = $mysqli->prepare($query);
+                                            $stmt2->execute();
+                                            $res = $stmt2->get_result();
+                                            while ($course_row = $res->fetch_object()) {
+                                                echo "<option value='$course_row->course_fn'>$course_row->course_fn ($course_row->course_sn)</option>";
+                                            }
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="stayfrom">Staying From:</label>
-
-                                        <input type="date" class="form-control" name="stayfrom" value="<?php echo htmlspecialchars($row->stayfrom); ?>" required style="width: 94%">
-
-                                    </div>
-
                                     <button type="submit" name="update" class="align-right">Update</button>
-
                                 </form>
                             </div>
                         </div>

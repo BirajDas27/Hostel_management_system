@@ -99,11 +99,12 @@
                     <li><a href="manage-notices.php">Manage Notices</a></li>
                 </ul>
             </li>
-            <li><a href="registration.php"><i class="fa fa-user-plus"></i> Student Registration</a></li>
+            <li><a href="new-registration.php"><i class="fa fa-user-plus"></i> Student Registration</a></li>
             <li class="menu-item-has-children">
                 <a href="#"><i class="fa fa-users"></i> Manage Students</a>
                 <ul class="sub-menu">
                     <li><a href="manage-students.php">Students</a></li>
+                    <li><a href="student-roomdetail.php">Room Allotment</a></li>
                     <li><a href="attendance.php">Attendance</a></li>
                     <li><a href="billing_management.php">Bills</a></li>
                 </ul>
