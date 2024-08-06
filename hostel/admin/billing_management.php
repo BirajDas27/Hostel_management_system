@@ -9,7 +9,7 @@ if (isset($_POST['mark_paid'])) {
     $bill_id = $_POST['bill_id'];
 
     // Update fee status to 'paid'
-    $update = "UPDATE bills SET status = 'paid', paid_date = NOW() WHERE id = ?";
+    $update = "UPDATE bills SET status = 'Paid', paid_date = NOW() WHERE id = ?";
     $stmt = $mysqli->prepare($update);
     $stmt->bind_param('i', $bill_id);
     $stmt->execute();
@@ -21,14 +21,14 @@ if (isset($_POST['mark_paid'])) {
 
 // Generate empty payment columns for all users
 if (isset($_POST['generate_payments'])) {
-    $users_query = "SELECT id FROM registration";
+    $users_query = "SELECT regno FROM registration";
     $users_result = $mysqli->query($users_query);
 
     while ($user_row = $users_result->fetch_assoc()) {
-        $user_id = $user_row['id'];
-        $insert = "INSERT INTO bills (user_id, amount, status, transaction_id) VALUES (?, '', 'unpaid', '')";
+        $regno = $user_row['regno'];
+        $insert = "INSERT INTO bills (regno, amount, status, transaction_id) VALUES (?, '', 'Unpaid', '')";
         $stmt = $mysqli->prepare($insert);
-        $stmt->bind_param('i', $user_id);
+        $stmt->bind_param('i', $regno);
         $stmt->execute();
     }
 
@@ -85,7 +85,8 @@ if (isset($_POST['generate_payments'])) {
                                     <table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th>Bill ID</th>
+                                                <th>Bill id</th>
+                                                <th>Reg No</th>
                                                 <th>User Name</th>
                                                 <th>Amount</th>
                                                 <th>Status</th>
@@ -96,9 +97,9 @@ if (isset($_POST['generate_payments'])) {
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $query = "SELECT b.id, b.amount, b.status, b.paid_date, b.transaction_id, r.firstName 
+                                            $query = "SELECT b.id, b.regno, b.amount, b.status, b.paid_date, b.transaction_id, r.firstName 
                                                       FROM bills b 
-                                                      JOIN registration r ON b.user_id = r.id 
+                                                      JOIN registration r ON b.regno = r.regno 
                                                       ORDER BY b.paid_date DESC"; // Default order
                                             $fees_result = $mysqli->query($query);
 
@@ -106,7 +107,8 @@ if (isset($_POST['generate_payments'])) {
                                                 while ($row = $fees_result->fetch_assoc()) {
                                             ?>
                                                     <tr>
-                                                        <td><?php echo $row['id']; ?></td>
+                                                        <td><?php echo $row['id'];?></td>
+                                                        <td><?php echo $row['regno']; ?></td>
                                                         <td><?php echo $row['firstName']; ?></td>
                                                         <td><?php echo $row['amount']; ?></td>
                                                         <td><?php echo $row['status']; ?></td>

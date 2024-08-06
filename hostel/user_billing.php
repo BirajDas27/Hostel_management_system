@@ -4,7 +4,7 @@ include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
 
-$user_id = $_SESSION['id'];
+$user_regno = $_SESSION['regno'];
 $order_by = 'CASE WHEN status = "unpaid" THEN 1 ELSE 2 END, paid_date DESC'; // Default sorting order
 
 // Handle sorting
@@ -22,11 +22,12 @@ if (isset($_POST['sort_option'])) {
 }
 
 // Fetch fees for the logged-in user
-$query = "SELECT * FROM bills WHERE user_id = ? ORDER BY $order_by";
+$query = "SELECT * FROM bills WHERE regno = ? ORDER BY $order_by";
 $stmt = $mysqli->prepare($query);
-$stmt->bind_param('i', $user_id);
+$stmt->bind_param('i', $user_regno);
 $stmt->execute();
 $result = $stmt->get_result();
+
 
 // Process payment
 if (isset($_POST['pay_fee'])) {
