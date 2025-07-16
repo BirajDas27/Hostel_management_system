@@ -80,5 +80,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 🙋‍♂️ Author
 
 Developed by **Biraj Das**  
-For queries, reach out at: [test@gmail.com](mailto:test@gmail.com)
+For queries, reach out at: [birajdas2002work@gmail.com]
 
